@@ -1,0 +1,25 @@
+<div class="page-container">
+  <div class="top-bar">
+    <h1>Hotel Integrations</h1>
+    <span>Connect your favorite tools</span>
+  </div>
+
+  <div class="tabs">
+    <span 
+      *ngFor="let cat of categories"
+      (click)="selectCategory(cat)"
+      [class.active]="cat === selectedCategory"
+    >
+      {{ cat }}
+    </span>
+  </div>
+
+  <div class="integrations-grid">
+    <div class="integration-card" *ngFor="let item of filteredIntegrations">
+      <img [src]="item.logo" [alt]="item.name" />
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.description }}</p>
+      <button (click)="connect(item.name)">🔗 Connect</button>
+    </div>
+  </div>
+</div>

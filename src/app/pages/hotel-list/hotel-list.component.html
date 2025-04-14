@@ -1,0 +1,35 @@
+<div class="hotel-list-container">
+  <div class="top-bar">
+    <h2>🏨 Liste des Hôtels</h2>
+    <div class="button-group">
+      <button class="add-btn" (click)="goToAddHotel()">➕ Ajouter un Hôtel</button>
+      <button class="edit-btn">✏️ Modifier Tous</button>
+    </div>
+  </div>
+
+  <table class="hotel-table">
+    <thead>
+      <tr>
+        <th>🏨 Nom</th>
+        <th>📍 Ville</th>
+        <th>🌍 Pays</th>
+        <th>⭐ Étoiles</th>
+        <th>🛠️ Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hotel of hotels">
+        <td>{{ hotel.name }}</td>
+        <td>{{ hotel.city }}</td>
+        <td>{{ hotel.country }}</td>
+        <td>{{ hotel.stars }}</td>
+        <td>
+          <div class="table-actions">
+            <button class="edit" (click)="goToAddHotel()">✏️ Modifier</button>
+            <button class="delete" (click)="deleteHotel(hotel)">🗑️ Supprimer</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

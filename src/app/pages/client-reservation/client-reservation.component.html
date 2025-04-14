@@ -1,0 +1,28 @@
+<div class="client-details-container" *ngIf="reservation">
+    <h2>Client Reservation Details</h2>
+  
+    <div class="details-card">
+      <h3>{{ reservation.name }}</h3>
+  
+      <ul>
+        <li><strong>Hotel:</strong> {{ reservation.hotel }}</li>
+        <li><strong>Room Type:</strong> {{ reservation.roomType }}</li>
+        <li><strong>Reservation Type:</strong> {{ reservation.reservationType }}</li>
+        <li><strong>Guests:</strong> {{ reservation.guests }}</li>
+        <li><strong>Rooms:</strong> {{ reservation.rooms }}</li>
+        <li><strong>Check-in:</strong> {{ reservation.checkIn }}</li>
+        <li><strong>Check-out:</strong> {{ reservation.checkOut }}</li>
+        <li>
+          <strong>Status:</strong>
+          <span *ngIf="reservation.status === 'Confirmed'">✅ Confirmed</span>
+          <span *ngIf="reservation.status === 'Pending'">⏳ Pending</span>
+          <span *ngIf="reservation.status === 'Cancelled'">❌ Cancelled</span>
+          <span *ngIf="reservation.status === 'Checked-in'">🛎️ Checked-in</span>
+          <span *ngIf="reservation.status === 'Checked-out'">🏁 Checked-out</span>
+        </li>
+      </ul>
+    </div>
+  
+    <button class="back-button" (click)="goBack()">⬅ Back</button>
+  </div>
+  

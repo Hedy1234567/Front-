@@ -1,0 +1,250 @@
+<div class="topbar">
+  <!-- Welcome Message -->
+  <div class="welcome-message-topbar">
+    Bienvenue sur l'application de check-in en ligne ! 🎉
+  </div>
+
+  <!-- Admin info -->
+  <div class="user-info">
+    <div class="username-dropdown">
+      <span class="username">👤 Admin</span>
+      <div class="dropdown-content">
+        <button>✏️ Modifier Profil</button>
+        <button>🔓 Déconnexion</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sidebar">
+  <div class="logo-container">
+    <img src="assets/logo.png" class="logo" />
+    <h2 class="company-name">Nominis</h2>
+  </div>
+  <a routerLink="/hotels">🏨 Hôtels</a>
+  <a routerLink="/clients">👤 Clients</a>
+  <a routerLink="/reservations">📅 Réservations</a>
+  <a routerLink="/Marketplace"> Marketplace</a>
+  <a [routerLink]="['/role']">Roles</a>
+  <a routerLink="/login" class="logout-link">🔓 Déconnexion</a>
+
+  <div class="additional-info">
+    <div class="social-media">
+      <h4>Suivez-nous:</h4>
+      <a href="https://www.facebook.com" target="_blank" class="social-icon facebook">📘 Facebook</a>
+      <a href="https://www.instagram.com" target="_blank" class="social-icon instagram">📸 Instagram</a>
+      <a href="https://www.twitter.com" target="_blank" class="social-icon twitter">🐦 Twitter</a>
+      <a href="#" class="social-icon">🌐 Website</a>
+    </div>
+
+    <div class="contact-info">
+      <h4>Contactez-nous:</h4>
+      <p>📍 Rue de Palestine</p>
+      <p>📞 +216 56634578</p>
+      <p>✉️ contact.nominis.com</p>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="welcome-message">
+    <h2>Découvrez les infos essentielles pour vos hôtels & clients🎉</h2>
+  </div>
+  <!-- Moved checkin-container here -->
+  <div class="checkin-container">
+    <div class="text-section">
+      <h1><span>Monetize</span> your check-ins</h1>
+      <p>
+        Offer the best automatic guest registration process for your tourist accommodation.
+      </p>
+      <ul class="features">
+        <li>Online check-in</li>
+        <li>Guest data sending to the authorities</li>
+        <li>Smart locks access</li>
+        <li>Communication with your guests</li>
+        <li>Personalised contracts and digital signature</li>
+        <li>Upselling and guest experiences</li>
+      </ul>
+      <div class="buttons">
+        <button class="btn-primary">Try for free</button>
+        <button class="btn-secondary">Contact Sales</button>
+      </div>
+    </div>
+    <div class="image-section">
+      <img src="assets/image.png" alt="Check-in dashboard" />
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card blue">
+      <h3>Hôtels Réservés</h3>
+      <p>120</p>
+      <span>+12%</span>
+    </div>
+    <div class="card green">
+      <h3>Clients Actifs</h3>
+      <p>500</p>
+      <span>+7%</span>
+    </div>
+    <div class="card orange">
+      <h3>Réservations Pendantes</h3>
+      <p>15</p>
+      <span>-5%</span>
+    </div>
+    <div class="card purple">
+      <h3>Réservations Récentes</h3>
+      <p>5</p>
+      <span>+20%</span>
+    </div>
+    <div class="card yellow">
+      <h3>Note Moyenne</h3>
+      <p>4.5 / 5</p>
+      <span>Stable</span>
+    </div>
+    <div class="card red">
+      <h3>Pages Vues</h3>
+      <p>2,345</p>
+      <span>+30%</span>
+    </div>
+    <div class="card teal">
+      <h3>Utilisateurs Totaux</h3>
+      <p>1,250</p>
+      <span>+10%</span>
+    </div>
+  </div>
+
+  <div class="graphs">
+    <div class="graph-card">
+      <h3>Réservations par Mois</h3>
+      <div class="graph">Graph Placeholder</div>
+    </div>
+    <div class="graph-card">
+      <h3>Clients par Région</h3>
+      <div class="graph">Graph Placeholder</div>
+    </div>
+    <div class="graph-card">
+      <h3>Statistiques Hebdomadaires</h3>
+      <canvas id="weeklyStats"></canvas>
+    </div>
+  </div>
+</div>
+
+<div class="reservation-table">
+  <h3>Réservations Clients</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Client ID</th>
+        <th>Nom du Client</th>
+        <th>Statut</th>
+        <th>Réservation</th>
+        <th>Prix</th>
+        <th>Nombre de Nuits</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>001</td>
+        <td>John Doe</td>
+        <td class="active">Actif</td>
+        <td>✅</td>
+        <td>$120</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>002</td>
+        <td>Jane Smith</td>
+        <td class="inactive">Inactif</td>
+        <td>❌</td>
+        <td>$200</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>003</td>
+        <td>Sam Johnson</td>
+        <td class="active">Actif</td>
+        <td>✅</td>
+        <td>$150</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>004</td>
+        <td>Emily Davis</td>
+        <td class="inactive">Inactif</td>
+        <td>❌</td>
+        <td>$90</td>
+        <td>1</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="hotel-table">
+  <h3>Hôtels et Disponibilité</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Hôtel</th>
+        <th>Type de Chambre</th>
+        <th>Nombre de Chambres</th>
+        <th>Chambres Disponibles</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="3">Hôtel Paris</td>
+        <td>Double</td>
+        <td>200</td>
+        <td>150</td>
+      </tr>
+      <tr>
+        <td>Triple</td>
+        <td>100</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td>Quadruple</td>
+        <td>50</td>
+        <td>30</td>
+      </tr>
+      <tr>
+        <td rowspan="2">Hôtel Lyon</td>
+        <td>Double</td>
+        <td>120</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>Triple</td>
+        <td>50</td>
+        <td>30</td>
+      </tr>
+      <tr>
+        <td rowspan="3">Hôtel Marseille</td>
+        <td>Double</td>
+        <td>100</td>
+        <td>60</td>
+      </tr>
+      <tr>
+        <td>Triple</td>
+        <td>80</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Quadruple</td>
+        <td>60</td>
+        <td>40</td>
+      </tr>
+      <tr>
+        <td rowspan="2">Hôtel Nice</td>
+        <td>Double</td>
+        <td>80</td>
+        <td>70</td>
+      </tr>
+      <tr>
+        <td>Triple</td>
+        <td>40</td>
+        <td>20</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

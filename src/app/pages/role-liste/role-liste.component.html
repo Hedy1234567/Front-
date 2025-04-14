@@ -1,0 +1,19 @@
+<div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let role of roles">
+          <td>{{ role.name }}</td>
+          <td>
+            <button (click)="viewDetails(roles)">Description</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,39 @@
+<div class="client-list-container">
+  <h2>Client Reservations</h2>
+
+  <input [(ngModel)]="searchQuery" placeholder="Search by reservation name..." />
+
+  <h3>Status Overview</h3>
+  <table class="status-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Hotel</th>
+        <th>Room Type</th>
+        <th>Check-in</th>
+        <th>Check-out</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reservation of filteredReservations">
+        <td>{{ reservation.name }}</td>
+        <td>{{ reservation.hotel }}</td>
+        <td>{{ reservation.roomType }}</td>
+        <td>{{ reservation.checkIn }}</td>
+        <td>{{ reservation.checkOut }}</td>
+        <td>
+          <span *ngIf="reservation.status === 'Confirmed'">✅ Confirmed</span>
+          <span *ngIf="reservation.status === 'Pending'">⏳ Pending</span>
+          <span *ngIf="reservation.status === 'Cancelled'">❌ Cancelled</span>
+          <span *ngIf="reservation.status === 'Checked-in'">🛎️ Checked-in</span>
+          <span *ngIf="reservation.status === 'Checked-out'">🏁 Checked-out</span>
+        </td>
+        <td>
+          <button (click)="viewClientDetails(reservation)">View Details</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

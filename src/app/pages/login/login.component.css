@@ -1,0 +1,113 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #62626295;
+  color: #a5a7a9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+/* Login Container */
+.login-container {
+  width: 300px;
+  margin: 100px auto;
+  background-color: #faf6f6f1;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 10;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Heading */
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+/* Slide-In Animation for Heading */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Input Fields */
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+/* Focus Effect for Inputs */
+input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 10px rgba(25, 118, 210, 0.3);
+}
+
+/* Button Styles */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background-color: #1976d2;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  outline: none;
+}
+
+/* Button Hover Effect */
+button:hover {
+  background-color: #1565c0;
+  transform: scale(1.05);
+}
+
+/* Button Active Effect */
+button:active {
+  background-color: #0d47a1;
+  transform: scale(1.1);
+}

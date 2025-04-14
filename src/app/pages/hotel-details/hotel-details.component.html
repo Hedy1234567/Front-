@@ -1,0 +1,54 @@
+<div class="hotel-details-container">
+  <h2>Ajouter un Hôtel</h2>
+
+  <label>Nom de l'hôtel :</label>
+  <input type="text" [(ngModel)]="hotel.name" placeholder="Nom de l'hôtel" />
+
+  <label>Adresse :</label>
+  <input type="text" [(ngModel)]="hotel.address" placeholder="Adresse de l'hôtel" (click)="showAddressDetails = true" />
+
+  <div *ngIf="showAddressDetails" class="extra-address-fields">
+    <label>Nom de rue :</label>
+    <input type="text" [(ngModel)]="hotel.addressDetails.streetName" placeholder="Rue" />
+
+    <label>Numéro :</label>
+    <input type="text" [(ngModel)]="hotel.addressDetails.streetNumber" placeholder="Numéro" />
+
+    <label>Code postal :</label>
+    <input type="text" [(ngModel)]="hotel.addressDetails.postalCode" placeholder="Code postal" />
+
+    <label>Ville :</label>
+    <input type="text" [(ngModel)]="hotel.addressDetails.city" placeholder="Ville" />
+  </div>
+
+  <label>Nombre d'étoiles :</label>
+  <input type="number" [(ngModel)]="hotel.stars" min="1" max="5" placeholder="Entre 1 et 5" />
+
+  <label>Description :</label>
+  <textarea [(ngModel)]="hotel.description" placeholder="Description de l'hôtel"></textarea>
+
+  <div class="personnel-section">
+    <h3>Personnel de l'hôtel</h3>
+
+    <div *ngFor="let personnel of personnelList; let i = index" class="personnel-card">
+      <label>Nom complet :</label>
+      <input type="text" [(ngModel)]="personnel.fullName" placeholder="Nom complet" />
+
+      <label>Téléphone :</label>
+      <input type="text" [(ngModel)]="personnel.phone" placeholder="Téléphone" />
+
+      <label>Rôle :</label>
+      <input type="text" [(ngModel)]="personnel.role" placeholder="Ex: Réceptionniste, Caissier, Chef..." />
+
+      <button *ngIf="personnelList.length > 1" (click)="removePersonnel(i)" class="cancel-btn">Supprimer</button>
+      <hr />
+    </div>
+
+    <button (click)="addPersonnel()" class="save-btn">Ajouter un personnel</button>
+  </div>
+
+  <div class="button-row">
+    <button (click)="saveHotel()" class="save-btn">Enregistrer</button>
+    <button (click)="cancel()" class="cancel-btn">Annuler</button>
+  </div>
+</div>
