@@ -1,31 +1,41 @@
 <div class="topbar">
-  <!-- Welcome Message -->
-  <div class="welcome-message-topbar">
-    Bienvenue sur l'application de check-in en ligne ! 🎉
-  </div>
-
-  <!-- Admin info -->
+  <!-- Admin info moved to the left -->
   <div class="user-info">
     <div class="username-dropdown">
       <span class="username">👤 Admin</span>
       <div class="dropdown-content">
         <button>✏️ Modifier Profil</button>
+        <button>⚙️ Paramètres</button>
+        <button>🔔 Notifications</button>
         <button>🔓 Déconnexion</button>
       </div>
     </div>
+  </div>
+
+  <!-- Welcome Message -->
+  <div class="welcome-message-topbar">
+    Bienvenue sur l'application de check-in en ligne ! 🎉
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="quick-actions">
+    <button class="action-btn">🔔</button>
+    <button class="action-btn">✉️</button>
+    <button class="action-btn">⚙️</button>
   </div>
 </div>
 
 <div class="sidebar">
   <div class="logo-container">
-    <img src="assets/logo.png" class="logo" />
+    <img src="\assets\images\Nominis.jpg" class="logo" />
     <h2 class="company-name">Nominis</h2>
   </div>
   <a routerLink="/hotels">🏨 Hôtels</a>
   <a routerLink="/clients">👤 Clients</a>
   <a routerLink="/reservations">📅 Réservations</a>
-  <a routerLink="/Marketplace"> Marketplace</a>
-  <a [routerLink]="['/role']">Roles</a>
+  <a routerLink="/Marketplace">🛍️ Marketplace</a>
+  <a [routerLink]="['/role']">👥 Roles</a>
+  <a routerLink="/user">👤 Users</a>
   <a routerLink="/login" class="logout-link">🔓 Déconnexion</a>
 
   <div class="additional-info">
@@ -48,9 +58,9 @@
 
 <div class="content">
   <div class="welcome-message">
-    <h2>Découvrez les infos essentielles pour vos hôtels & clients🎉</h2>
+    <h2>Découvrez les infos essentielles pour vos hôtels & clients 🎉</h2>
   </div>
-  <!-- Moved checkin-container here -->
+
   <div class="checkin-container">
     <div class="text-section">
       <h1><span>Monetize</span> your check-ins</h1>
@@ -111,6 +121,35 @@
       <p>1,250</p>
       <span>+10%</span>
     </div>
+    <div class="card pink">
+      <h3>Revenus Mensuels</h3>
+      <p>€25,480</p>
+      <span>+15%</span>
+    </div>
+  </div>
+
+  <div class="quick-stats">
+    <div class="stat-card">
+      <div class="stat-icon">⭐</div>
+      <div class="stat-info">
+        <h4>Satisfaction Client</h4>
+        <p>98%</p>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🏆</div>
+      <div class="stat-info">
+        <h4>Prix Gagnés</h4>
+        <p>12</p>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🌍</div>
+      <div class="stat-info">
+        <h4>Pays Couverts</h4>
+        <p>25</p>
+      </div>
+    </div>
   </div>
 
   <div class="graphs">
@@ -127,124 +166,31 @@
       <canvas id="weeklyStats"></canvas>
     </div>
   </div>
-</div>
 
-<div class="reservation-table">
-  <h3>Réservations Clients</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Client ID</th>
-        <th>Nom du Client</th>
-        <th>Statut</th>
-        <th>Réservation</th>
-        <th>Prix</th>
-        <th>Nombre de Nuits</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>001</td>
-        <td>John Doe</td>
-        <td class="active">Actif</td>
-        <td>✅</td>
-        <td>$120</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <td>002</td>
-        <td>Jane Smith</td>
-        <td class="inactive">Inactif</td>
-        <td>❌</td>
-        <td>$200</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <td>003</td>
-        <td>Sam Johnson</td>
-        <td class="active">Actif</td>
-        <td>✅</td>
-        <td>$150</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>004</td>
-        <td>Emily Davis</td>
-        <td class="inactive">Inactif</td>
-        <td>❌</td>
-        <td>$90</td>
-        <td>1</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="hotel-table">
-  <h3>Hôtels et Disponibilité</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Hôtel</th>
-        <th>Type de Chambre</th>
-        <th>Nombre de Chambres</th>
-        <th>Chambres Disponibles</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td rowspan="3">Hôtel Paris</td>
-        <td>Double</td>
-        <td>200</td>
-        <td>150</td>
-      </tr>
-      <tr>
-        <td>Triple</td>
-        <td>100</td>
-        <td>80</td>
-      </tr>
-      <tr>
-        <td>Quadruple</td>
-        <td>50</td>
-        <td>30</td>
-      </tr>
-      <tr>
-        <td rowspan="2">Hôtel Lyon</td>
-        <td>Double</td>
-        <td>120</td>
-        <td>100</td>
-      </tr>
-      <tr>
-        <td>Triple</td>
-        <td>50</td>
-        <td>30</td>
-      </tr>
-      <tr>
-        <td rowspan="3">Hôtel Marseille</td>
-        <td>Double</td>
-        <td>100</td>
-        <td>60</td>
-      </tr>
-      <tr>
-        <td>Triple</td>
-        <td>80</td>
-        <td>50</td>
-      </tr>
-      <tr>
-        <td>Quadruple</td>
-        <td>60</td>
-        <td>40</td>
-      </tr>
-      <tr>
-        <td rowspan="2">Hôtel Nice</td>
-        <td>Double</td>
-        <td>80</td>
-        <td>70</td>
-      </tr>
-      <tr>
-        <td>Triple</td>
-        <td>40</td>
-        <td>20</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="recent-activity">
+    <h3>Activités Récentes</h3>
+    <div class="activity-list">
+      <div class="activity-item">
+        <span class="activity-icon">🏨</span>
+        <div class="activity-details">
+          <p>Nouvel hôtel ajouté: Grand Plaza</p>
+          <small>Il y a 2 heures</small>
+        </div>
+      </div>
+      <div class="activity-item">
+        <span class="activity-icon">👤</span>
+        <div class="activity-details">
+          <p>Nouveau client enregistré</p>
+          <small>Il y a 3 heures</small>
+        </div>
+      </div>
+      <div class="activity-item">
+        <span class="activity-icon">📅</span>
+        <div class="activity-details">
+          <p>5 nouvelles réservations</p>
+          <small>Il y a 5 heures</small>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

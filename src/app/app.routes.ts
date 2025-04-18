@@ -9,6 +9,11 @@ import { ClientListComponent } from './pages/client-list/client-list.component';
 import { ClientReservationComponent } from './pages/client-reservation/client-reservation.component';
 import { RoleListeComponent } from './pages/role-liste/role-liste.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
+import { UserListComponent } from './pages/user/user.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { CheckInComponent } from './pages/check-in/check-in.component';
+
+
  
 export const appRoutes: Routes = [
   { path: '', component: WelcomePageComponent }, // 👈 page d’accueil
@@ -24,4 +29,8 @@ export const appRoutes: Routes = [
   { path: 'client-reservation', component: ClientReservationComponent },
   { path: 'role', component: RoleListeComponent },
   { path: 'role-details', component: RoleDetailsComponent },
+  { path: 'user', component: UserListComponent },
+  { path: 'user-details', component: UserDetailsComponent },
+  { path: 'reservations', component: CheckInComponent },
+
 ];

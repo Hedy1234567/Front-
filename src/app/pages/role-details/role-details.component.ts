@@ -1,33 +1,49 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-role-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './role-details.component.html',
   styleUrls: ['./role-details.component.css']
 })
 export class RoleDetailsComponent implements OnInit {
   role: any;
-  securityLevels: any[] = [];
+  securityLevels: any[] = [
+    { task: 'Access Hotel Data', access: true },
+    { task: 'Manage Reservations', access: true },
+    { task: 'Edit Room Availability', access: true },
+    { task: 'Approve Budget', access: true },
+    { task: 'Check-in / Check-out Guests', access: false },
+    { task: 'Manage Staff Schedules', access: false },
+    { task: 'Generate Reports', access: true },
+    { task: 'Handle Guest Complaints', access: true },
+    { task: 'View Financial Statements', access: false },
+    { task: 'Assign Housekeeping Tasks', access: false },
+    { task: 'Manage Restaurant Menu', access: false },
+    { task: 'Monitor Security Systems', access: false },
+    { task: 'Handle Online Bookings', access: true },
+  ];
+  
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    const nav = this.router.getCurrentNavigation();
-    this.role = nav?.extras?.state?.['role'];
+    // Fetch the role data passed through the navigation state
+    const navigation = this.router.getCurrentNavigation();
+    this.role = navigation?.extras?.state?.['role'];
 
+    // Fallback if role data is not passed
     if (!this.role) {
-      this.role = { name: 'Unknown', description: 'No description provided.' };
+      this.role = { name: 'Unknown Role', description: 'No description available.' };
     }
+  }
 
-    this.securityLevels = [
-      { task: 'Access Hotel Data', level: 'High' },
-      { task: 'Manage Reservations', level: 'Medium' },
-      { task: 'Edit Room Availability', level: 'Low' },
-      { task: 'Approve Expenses', level: 'High' }
-    ];
+  goBack() {
+    // Navigate back to the role list
+    this.router.navigate(['/role']);
   }
 }

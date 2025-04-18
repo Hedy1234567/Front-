@@ -8,8 +8,9 @@
   <a routerLink="/clients">👤 Clients</a>
   <a routerLink="/reservations">📅 Réservations</a>
   <a routerLink="/Marketplace">🛍️ Marketplace</a>
-  <a routerLink="/role">👥Roles</a>
-  <a routerLink="/user">👤 users</a>
+  <a routerLink="/role">👥 Roles</a>
+  <a routerLink="/user">👤users</a>
+
   <a routerLink="/login" class="logout-link">🔓 Déconnexion</a>
 
   <div class="additional-info">
@@ -29,41 +30,27 @@
     </div>
   </div>
 </div>
+<div class="user-list-container">
+  <h2>User List</h2>
 
-<div class="client-list-container">
-  <h2>Client Reservations</h2>
-
-  <input [(ngModel)]="searchQuery" placeholder="Search by reservation name..." />
-
-  <h3>Status Overview</h3>
-  <table class="status-table">
+  <table class="user-table">
     <thead>
       <tr>
         <th>Name</th>
-        <th>Hotel</th>
-        <th>Room Type</th>
-        <th>Check-in</th>
-        <th>Check-out</th>
-        <th>Status</th>
-        <th>Action</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let reservation of filteredReservations">
-        <td>{{ reservation.name }}</td>
-        <td>{{ reservation.hotel }}</td>
-        <td>{{ reservation.roomType }}</td>
-        <td>{{ reservation.checkIn }}</td>
-        <td>{{ reservation.checkOut }}</td>
+      <tr *ngFor="let user of users">
+        <td>{{ user.name }}</td>
+        <td>{{ user.address }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role | titlecase }}</td>
         <td>
-          <span *ngIf="reservation.status === 'Confirmed'">✅ Confirmed</span>
-          <span *ngIf="reservation.status === 'Pending'">⏳ Pending</span>
-          <span *ngIf="reservation.status === 'Cancelled'">❌ Cancelled</span>
-          <span *ngIf="reservation.status === 'Checked-in'">🛎️ Checked-in</span>
-          <span *ngIf="reservation.status === 'Checked-out'">🏁 Checked-out</span>
-        </td>
-        <td>
-          <button (click)="viewClientDetails(reservation)">View Details</button>
+          <button (click)="viewDetails(user)">View Details</button>
         </td>
       </tr>
     </tbody>

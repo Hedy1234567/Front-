@@ -1,20 +1,66 @@
-<div class="container">
-  <h2>Role: {{ role?.name }}</h2>
-  <p><strong>Description:</strong> {{ role?.description }}</p>
+<div class="page-layout">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo-container">
+      <img src="assets/logo.png" class="logo" />
+      <h2 class="company-name">Nominis</h2>
+    </div>
+    <a routerLink="/hotels">🏨 Hôtels</a>
+    <a routerLink="/clients">👤 Clients</a>
+    <a routerLink="/reservations">📅 Réservations</a>
+    <a routerLink="/Marketplace"> 🛍️Marketplace</a>
+    <a routerLink="/role">👥 Roles</a>
+    <a routerLink="/user">👤 users</a>
+    <a routerLink="/login" class="logout-link">🔓 Déconnexion</a>
 
-  <h3>Security Levels</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Task</th>
-        <th>Level</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let level of securityLevels">
-        <td>{{ level.task }}</td>
-        <td>{{ level.level }}</td>
-      </tr>
-    </tbody>
-  </table>
+    <div class="additional-info">
+      <div class="social-media">
+        <h4>Suivez-nous:</h4>
+        <a href="https://www.facebook.com" target="_blank" class="social-icon facebook">📘 Facebook</a>
+        <a href="https://www.instagram.com" target="_blank" class="social-icon instagram">📸 Instagram</a>
+        <a href="https://www.twitter.com" target="_blank" class="social-icon twitter">🐦 Twitter</a>
+        <a href="#" class="social-icon">🌐 Website</a>
+      </div>
+
+      <div class="contact-info">
+        <h4>Contactez-nous:</h4>
+        <p>📍 Rue de Palestine</p>
+        <p>📞 +216 56634578</p>
+        <p>✉️ contact.nominis.com</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="top-bar">
+      <h2>Role: {{ role.name }}</h2>
+    </div>
+
+    <div class="container">
+      <h2>Role: {{ role.name }}</h2>
+      <p><strong>Description:</strong> {{ role.description }}</p>
+
+      <h3>Security Levels</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Access</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let level of securityLevels">
+            <td>{{ level.task }}</td>
+            <td [ngClass]="{'yes': level.access, 'no': !level.access}">{{ level.access ? 'Yes' : 'No' }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Back Button Section -->
+      <div class="back-btn">
+        <button (click)="goBack()">⬅ Back to Role List</button>
+      </div>
+    </div>
+  </div>
 </div>

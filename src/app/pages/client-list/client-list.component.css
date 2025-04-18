@@ -1,6 +1,7 @@
 .client-list-container {
     max-width: 1000px;
     margin: 40px auto;
+    margin-left: 370px;
     padding: 20px;
     background-color: #e3f2fd;
     border-radius: 12px;
@@ -81,4 +82,88 @@
   .status-table th {
     background-color: #bbdefb;
   }
-  
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background-color: #ffffff;
+  color: #2c3e50;
+  height: 100vh;
+  box-shadow: 0 5px 20px rgba(35, 87, 200, 0.822);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
+  border-right: 2px solid black; /* Black border for the sidebar */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f4ff;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+}
+
+.company-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4a6bff;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  color: #2c3e50;
+
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.sidebar a:hover {
+  background-color: #f0f4ff;
+  color: #4a6bff;
+  transform: translateX(5px);
+}
+
+.additional-info {
+  margin-top: auto;
+  border-top: 2px solid #f0f4ff;
+  padding-top: 20px;
+}
+
+.social-icon {
+  display: block;
+  padding: 8px;
+  text-decoration: none;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #4a6bff;
+  box-shadow: 0 5px 20px rgba(35, 87, 200, 0.822);
+
+  transform: translateX(5px);
+}
+
+.contact-info p {
+  font-size: 14px;
+  color: #6c7293;
+  margin: 8px 0;
+}

@@ -1,56 +1,63 @@
-.client-details-container {
-    max-width: 700px;
-    margin: 50px auto;
-    margin-left: 500px;
-    padding: 25px;
-    background-color: #f1f8ff;
-    border-radius: 12px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', sans-serif;
-  }
-  
-  .details-card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    border-left: 5px solid #1976d2;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  }
-  
-  .details-card h3 {
-    margin-top: 0;
-    color: #1976d2;
-  }
-  
-  .details-card ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .details-card li {
-    padding: 8px 0;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 16px;
-  }
-  
-  .back-button {
-    margin-top: 20px;
-    padding: 10px 16px;
-    background-color: #1976d2;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .back-button:hover {
-    background-color: #145ea8;
-  }
+.user-detail-card {
+  max-width: 600px;
+  margin: 60px auto;
+  margin-top: 100px;
+  margin-left: 520px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Darker shadow for a more "contoured" look */
+  border: 2px solid #000; /* Black contour border */
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  position: relative;
+  transition: all 0.3s ease-in-out; /* Add smooth transition effect */
+}
+
+.user-detail-card:hover {
+  transform: translateY(-5px); /* Slightly lift the card on hover */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); /* Darker and bigger shadow on hover */
+}
+
+.user-detail-card h2 {
+  color: #1976d2;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.user-detail-card .content {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.user-detail-card .content p {
+  margin-bottom: 15px;
+}
+
+.user-detail-card .button {
+  display: inline-block;
+  background-color: #1976d2;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.user-detail-card .button:hover {
+  background-color: #1565c0; /* Darker shade on hover */
+}
+
 /* Sidebar */
 .sidebar {
-  width: 280px;
+  width: 250px;
   background-color: #ffffff;
   color: #2c3e50;
   height: 100vh;

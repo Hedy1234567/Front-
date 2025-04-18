@@ -1,15 +1,107 @@
+/* Positioning the Registration Form */
 .hotel-details-container {
   max-width: 600px;
-  margin: 60px auto;
+  margin: 100px auto; /* Adjusts the vertical position */
   padding: 30px;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  background: linear-gradient(135deg, #a1b2d2, #2a5298);
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  display: flex;
   flex-direction: column;
   gap: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #f0f0f0;
+  position: relative; /* You can change the positioning method here */
+  top: 0; /* Adjust if you want to move it up/down */
+  left: 150px; /* Adjust if you want to move it left/right */
+}
+
+
+
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  color: #2c3e50;
+  height: 100vh;
+  box-shadow: 0 5px 20px rgba(35, 87, 200, 0.822);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
+  border-right: 2px solid black; /* Black border for the sidebar */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f4ff;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+}
+
+.company-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4a6bff;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  color: #2c3e50;
+
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.sidebar a:hover {
+  background-color: #f0f4ff;
+  color: #4a6bff;
+  transform: translateX(5px);
+}
+
+.additional-info {
+  margin-top: auto;
+  border-top: 2px solid #f0f4ff;
+  padding-top: 20px;
+}
+
+.social-icon {
+  display: block;
+  padding: 8px;
+  text-decoration: none;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #4a6bff;
+  box-shadow: 0 5px 20px rgba(35, 87, 200, 0.822);
+
+  transform: translateX(5px);
+}
+
+.contact-info p {
+  font-size: 14px;
+  color: #6c7293;
+  margin: 8px 0;
 }
 
 label {
@@ -87,51 +179,168 @@ button {
   gap: 12px;
 }
 
-/* Personnel Card Enhancements */
-.personnel-section {
-  margin-top: 30px;
-  background-color: #ffffff10;
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: inset 0 0 10px rgba(255,255,255,0.05);
-  animation: fadeIn 0.5s ease;
+/* General Layout */
+.hotel-details-container {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  margin-left: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 2rem auto;
+  font-family: 'Arial', sans-serif;
 }
 
-.personnel-card {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background-color: #ffffff08;
-  padding: 15px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.1);
-  margin-bottom: 20px;
+h2, h3 {
+  color: #2d2d2d;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  
 }
 
-.personnel-card input,
-.personnel-card select {
-  background-color: #ffffff12;
+label {
+  display: block;
+  
+  font-size: 14px;
+  font-weight: 500;
+  color: #4a4a4a;
+  margin: 8px 0 4px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+  border-color: #0066cc;
+  outline: none;
+}
+
+textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:focus {
+  outline: none;
+}
+
+.save-btn {
+  background-color: #0066cc;
   color: #fff;
-  border: 1px solid #777;
-  padding: 10px;
+}
+
+.save-btn:hover {
+  background-color: #005bb5;
+}
+
+.cancel-btn {
+  background-color: #ff4d4d;
+  color: #fff;
+  margin-left: 1rem;
+}
+
+.cancel-btn:hover {
+  background-color: #e60000;
+}
+
+/* Address Section */
+.extra-address-fields {
+  padding: 1rem;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.extra-address-fields label {
+  font-size: 13px;
+}
+
+.extra-address-fields input {
+  margin-bottom: 0.8rem;
+}
+
+/* Personnel Section */
+.personnel-section {
+  margin-top: 2rem;
+  background-color: #f1f1f1;
+  padding: 1rem;
   border-radius: 8px;
 }
 
-.personnel-card h3 {
-  color: #ffffffcc;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.personnel-card {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+button.cancel-btn {
+  background-color: #ff6666;
+  margin-left: 10px;
+}
+
+button.cancel-btn:hover {
+  background-color: #e60000;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
+}
+
+.save-btn {
+  margin-top: 1rem;
+  background-color: #28a745;
+  color: #fff;
+}
+
+.save-btn:hover {
+  background-color: #218838;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .hotel-details-container {
+    padding: 1rem;
+    margin: 1rem;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  input, textarea {
+    font-size: 12px;
+  }
+
+  .save-btn, .cancel-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .button-row {
+    flex-direction: column;
   }
 }
+
