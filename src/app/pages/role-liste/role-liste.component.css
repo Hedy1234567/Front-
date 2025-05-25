@@ -184,3 +184,19 @@ button:hover {
     display: none;
   }
 }
+.back-button {
+  background-color: #007bff; /* Blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-left: 800px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px; /* Add space below button */
+}
+
+.back-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}

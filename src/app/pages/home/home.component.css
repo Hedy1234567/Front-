@@ -293,7 +293,24 @@ body {
   color: #4a6bff;
 }
 
-/* Checkin Container */
+.checkin-container {
+  display: flex;
+  justify-content: space-between; /* Pushes content to the edges */
+  align-items: center;
+}
+
+.checkin-container .text {
+  flex: 1; /* Allows text to take the full width */
+}
+
+.checkin-container img {
+  width: 540px;  /* Medium size */
+  height: 400px;  /* Medium size */
+  object-fit: cover;  /* Ensures image doesn't distort */
+  margin-left: 20px;  /* Space between text and image */
+  margin-top: 0;  /* Aligns the image to the middle vertically */
+  
+}
 .checkin-container {
   background-color: #ffffff;
   border-radius: 20px;
@@ -302,6 +319,13 @@ body {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   border: 2px solid #cddcff; /* softer light blue border */
 }
+.white-half {
+  background-color: white;
+  padding: 20px;  /* Adjust padding to control spacing */
+  display: flex;
+  justify-content: flex-end; /* Align image to the right */
+}
+
 
 /* Main Heading */
 .text-section h1 {
@@ -367,7 +391,6 @@ body {
 }
 
 
-/* Graph Section */
 .graphs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -405,19 +428,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6c7293;
   border: 2px solid #f0f4ff;
   position: relative;
+  overflow: hidden;
 }
 
-.graph:before {
-  content: "Graph Placeholder";
-  font-size: 18px;
-  color: #b0b8c1;
-  text-align: center;
-  position: absolute;
+/* 🆕 this makes sure the image appears and fills the space */
+.graph img.graph-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
+/* For canvas only */
 .graph-card canvas {
   background-color: #f8faff;
   border-radius: 10px;

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Location } from '@angular/common';
+import { Location } from '@angular/common'; // Import Location
 
 @Component({
   selector: 'app-user-details',
@@ -18,6 +18,6 @@ export class UserDetailsComponent {
   }
 
   goBack() {
-    this.location.back();
+    this.location.back(); // Use location back to go to the previous page
   }
 }

@@ -32,4 +32,8 @@ export class RoleListeComponent {
     // Navigate to Role Details component, passing role data
     this.router.navigate(['/role-details'], { state: { role } });
   }
+  goBack() {
+    this.router.navigate(['/home']); // or navigate to another page you want as "back"
+  }
+  
 }

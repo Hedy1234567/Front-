@@ -2,12 +2,14 @@
 .page-layout {
   display: flex;
   min-height: 100vh;
-  background-color: #f5f8fc;
+  background-color: #f4f6f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
 }
 
 /* Sidebar */
 .sidebar {
-  width: 235px;
+  width: 250px;
   background-color: #ffffff;
   color: #2c3e50;
   height: 100vh;
@@ -91,101 +93,173 @@
   margin: 8px 0;
 }
 
-/* Main Content (Hotel List) Styling */
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #ffffffcc;
+}
+
+input,
+textarea {
+  padding: 10px 12px;
+  font-size: 15px;
+  width: 100%;
+  border: 1px solid #888;
+  border-radius: 8px;
+  background-color: #ffffff0f;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #90caf9;
+  box-shadow: 0 0 0 2px rgba(144, 202, 249, 0.2);
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  flex: 1;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.save-btn {
+  background-color: #4caf50;
+}
+
+.save-btn:hover {
+  background-color: #43a047;
+  transform: scale(1.05);
+}
+
+.cancel-btn {
+  background-color: #e53935;
+}
+
+.cancel-btn:hover {
+  background-color: #c62828;
+  transform: scale(1.05);
+}
+
+.extra-address-fields {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Main Content */
 .hotel-list-container {
-  margin-left: 300px; /* Ensures space for the sidebar */
-  padding: 24px;
-  background-color: #f5f8fc; /* soft background for the section */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  font-family: 'Segoe UI', sans-serif;
-  border: 2px solid #e0e0e0;
-  flex-grow: 1; /* Allow this container to take remaining space */
-  overflow-x: auto;
-  margin-right: 20px;
+  margin-left: 270px;
+  padding: 40px;
+  flex: 1;
 }
 
 /* Top Bar */
 .top-bar {
+  background: linear-gradient(90deg, #1976D2 0%, #2196F3 100%);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to right, #64b5f6, #2196f3); /* softer gradient */
-  color: white;
-  padding: 18px 28px;
-  border-radius: 10px;
-  margin-bottom: 24px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
 }
 
 .top-bar h2 {
-  font-size: 26px;
-  font-weight: bold;
-  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
 }
 
+/* Buttons */
 .button-group {
   display: flex;
-  gap: 16px;
+  gap: 12px;
 }
 
-.add-btn, .edit-btn {
-  background-color: white;
-  color: #2196f3;
-  border: 2px solid #2196f3;
-  padding: 10px 18px;
+.add-btn, .edit-btn, .home-btn {
+  background-color: #ffffff;
+  border: 2px solid #1976D2;
+  color: #1976D2;
   font-weight: bold;
-  font-size: 14px;
+  padding: 10px 18px;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.add-btn:hover, .edit-btn:hover {
-  background-color: #e3f2fd;
+.add-btn:hover, .edit-btn:hover, .home-btn:hover {
+  background-color: #1976D2;
+  color: #ffffff;
   transform: scale(1.05);
 }
 
-/* Hotel Table Styling */
+/* Hotel Table */
 .hotel-table {
   width: 100%;
-  border-collapse: collapse;
-  background-color: white;
-  border: 2px solid #e0e0e0;
+  background-color: #ffffff;
   border-radius: 10px;
   overflow: hidden;
-  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-collapse: collapse;
 }
 
 .hotel-table th, .hotel-table td {
-  border: 1px solid #e0e0e0;
   padding: 18px;
   text-align: left;
+  font-size: 16px;
 }
 
 .hotel-table th {
-  background-color: #bbdefb;
-  color: #0d47a1;
-  font-size: 18px;
+  background-color: #1976D2;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .hotel-table tr:nth-child(even) {
-  background-color: #f0f9ff;
+  background-color: #f9f9f9;
 }
 
+.hotel-table tr:hover {
+  background-color: #f1f8ff;
+}
+
+/* Table Actions */
 .table-actions {
   display: flex;
-  gap: 12px;
+  gap: 10px;
 }
 
 .table-actions button {
   padding: 8px 14px;
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
+  border-radius: 6px;
+  font-weight: bold;
   border: none;
-  transition: all 0.2s ease;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .table-actions .edit {
@@ -206,134 +280,34 @@
   background-color: #c82333;
 }
 
-/* Hover effect for the rows */
-.hotel-table tr:hover {
-  background-color: #e3f2fd;
-}
-
-/* Responsive Design for smaller screens */
+/* Responsive */
 @media (max-width: 768px) {
+  .page-layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }
   .hotel-list-container {
     margin-left: 0;
-    padding: 16px;
+    margin-top: 20px;
+    padding: 20px;
   }
-
-  .hotel-table th, .hotel-table td {
-    font-size: 14px;
-    padding: 12px;
-  }
-
-  .button-group {
+  .top-bar {
     flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
   }
-
-  .add-btn, .edit-btn {
+  .button-group {
     width: 100%;
-    text-align: center;
+    flex-direction: column;
   }
-}
-
-/* Hotel Table */
-.hotele-table {
-  margin-top: 30px;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  width: calc(100% - 300px); /* Decreased width to make it smaller */
-  margin-left: 250px; /* Keep alignment with the content area */
-}
-
-.hotele-table h3 {
-  font-size: 24px;
-  color: #1976d2;
-  font-weight: 600;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  border-bottom: 2px solid #1976d2;
-  padding-bottom: 10px;
-}
-
-table {
-  width: 100%;
-  margin-left: 20px;
-  border-collapse: collapse;
-  border-radius: 10px;
-  overflow: hidden; /* Ensure the borders are rounded */
-}
-
-table th, table td {
-  padding: 12px 15px; /* Reduced padding to make the table more compact */
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  font-size: 14px; /* Slightly smaller font size */
-}
-
-table th {
-  background-color: #1976d2;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-table td {
-  background-color: #f9f9f9;
-  color: #34495e;
-  transition: background-color 0.3s ease;
-}
-
-table tr:nth-child(even) td {
-  background-color: #f4f7fb; /* Alternate row color */
-}
-
-table tr:hover td {
-  background-color: #e3f2fd; /* Highlight row on hover */
-}
-
-table td:last-child {
-  text-align: center;
-}
-
-table td[rowspan] {
-  vertical-align: middle;
-  text-align: center;
-  background-color: #e3f2fd;
-  font-weight: 600;
-  color: #1976d2;
-}
-
-table td button {
-  padding: 6px 12px; /* Slightly smaller button padding */
-  background-color: #1976d2;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-table td button:hover {
-  background-color: #1565c0;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hotele-table {
+  .add-btn, .edit-btn, .home-btn {
     width: 100%;
-    margin-left: 0;
-    padding: 15px;
-  }
-
-  table {
-    font-size: 14px;
-  }
-
-  table th, table td {
-    padding: 10px;
-  }
-
-  table td[rowspan] {
-    font-size: 14px;
   }
 }

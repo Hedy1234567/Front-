@@ -5,13 +5,13 @@ import { HotelListComponent } from './pages/hotel-list/hotel-list.component';
 import { HotelDetailsComponent } from './pages/hotel-details/hotel-details.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component'; // 👈 import ajouté
 import { IntegrationsComponent } from './pages/integrations/integrations.component';
-import { ClientListComponent } from './pages/client-list/client-list.component';
-import { ClientReservationComponent } from './pages/client-reservation/client-reservation.component';
 import { RoleListeComponent } from './pages/role-liste/role-liste.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
 import { UserListComponent } from './pages/user/user.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { CheckInComponent } from './pages/check-in/check-in.component';
+import { ClientReservationComponent } from './pages/client-reservation/client-reservation.component';
+import { ClientListComponent } from './pages/client-list/client-list.component';
 
 
  
@@ -32,5 +32,4 @@ export const appRoutes: Routes = [
   { path: 'user', component: UserListComponent },
   { path: 'user-details', component: UserDetailsComponent },
   { path: 'reservations', component: CheckInComponent },
-
 ];

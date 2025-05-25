@@ -140,3 +140,27 @@
   color: #6c7293;
   margin: 8px 0;
 }
+/* Back Button */
+.back-button {
+  display: inline-block;
+  background-color: #1976d2; /* Match the primary color */
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  margin-left: 1200px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #1565c0; /* Darker shade on hover */
+}
+
+.back-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.5); /* Add a focus ring for better accessibility */
+}

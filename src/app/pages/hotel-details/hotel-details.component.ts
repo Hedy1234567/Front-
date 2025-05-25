@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';  // Import Location
 
 @Component({
   selector: 'app-hotel-details',
@@ -16,13 +17,18 @@ export class HotelDetailsComponent {
   hotel = {
     name: '',
     address: '',
-    stars: 1,
+    stars: 0,
     description: '',
     addressDetails: {
       streetName: '',
       streetNumber: '',
       postalCode: '',
       city: ''
+    },
+    roomTypes: {
+      single: 0,
+      double: 0,
+      suite: 0
     }
   };
 
@@ -34,7 +40,7 @@ export class HotelDetailsComponent {
     }
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private location: Location) {}
 
   addPersonnel() {
     this.personnelList.push({
@@ -60,5 +66,9 @@ export class HotelDetailsComponent {
 
   cancel() {
     this.router.navigate(['/hotel-list']);
+  }
+
+  goBack() {
+    this.location.back(); // Navigates to the previous page
   }
 }

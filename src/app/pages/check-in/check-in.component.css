@@ -2,46 +2,48 @@
 :host {
   display: block;
   min-height: 100vh;
-  background-color: white; /* Change background to white */
-  padding: 2rem;
+  background-color: #f7f9fc; /* Soft blue/white background */
+  padding: 3rem 2rem;
+  font-family: 'Arial', sans-serif; /* Elegant and clean font */
 }
 
 /* Form container */
 form {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  background-color: white;
-  padding: 2.5rem;
-  border: 2px solid black; /* Black contour for the form */
+  background-color: #ffffff;
+  padding: 3rem;
   border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Adding shadow to the form */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for a floating effect */
   position: relative;
+  border: 1px solid #dcdcdc; /* Light gray border for a clean look */
 }
 
 /* Title styling */
 h1 {
-  color: #0396FF;
+  color: #1e3a8a; /* Soft blue */
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+  font-size: 2.8rem;
+  margin-bottom: 2.5rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  border-bottom: 3px solid #000;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #1e3a8a;
   padding-bottom: 1rem;
+  font-weight: 700;
 }
 
 /* Form group styling */
 div {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 /* Label styling */
 label {
   display: block;
-  margin-bottom: 0.5rem;
-  color: #0396FF;
+  margin-bottom: 0.75rem;
+  color: #333; /* Dark gray for high contrast */
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 /* Input fields styling */
@@ -49,117 +51,138 @@ input:not([type="checkbox"]),
 select,
 textarea {
   width: 100%;
-  padding: 0.75rem;
-  border: 2px solid #000;
+  padding: 1rem;
+  border: 2px solid #dcdcdc; /* Light gray border for fields */
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  background-color: #fafafa; /* Light grayish background */
   transition: all 0.3s ease;
-  background-color: #fff;
+  color: #333;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: #0396FF;
-  box-shadow: 0 0 0 3px rgba(3, 150, 255, 0.2);
+  border-color: #1e3a8a; /* Soft blue border on focus */
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.2); /* Soft blue glow effect */
+}
+
+/* File input styling */
+input[type="file"] {
+  padding: 1rem;
+  border: 2px dashed #1e3a8a; /* Soft blue dashed border */
+  background-color: #f4f8fc; /* Light blue background */
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #1d4ed8; /* Darker blue on hover */
 }
 
 /* Date group styling */
 .date-group {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 /* Checkbox group styling */
 .checkbox-group {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .checkbox-group label {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
   cursor: pointer;
 }
 
 /* Fieldset styling */
 fieldset {
-  border: 2px solid #000;
+  border: 2px solid #1e3a8a; /* Soft blue border */
   border-radius: 8px;
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 legend {
-  color: #0396FF;
+  color: #1e3a8a; /* Soft blue text for legend */
   font-weight: 600;
   padding: 0 1rem;
+  font-size: 1.2rem;
 }
 
 /* Error message styling */
 .error-message {
-  color: #ff4444;
-  font-size: 0.875rem;
-  margin-top: 0.5rem;
+  color: #e74c3c; /* Red for errors */
+  font-size: 1rem;
+  margin-top: 0.75rem;
 }
 
 /* Terms section styling */
 .terms {
-  margin: 2rem 0;
-}
-
-.terms label {
+  margin: 2.5rem 0;
+  font-size: 1rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
+  gap: 1rem;
 }
 
 /* Submit button styling */
 button[type="submit"] {
   width: 100%;
-  padding: 1rem;
-  background-color: #0396FF;
+  padding: 1.2rem;
+  background-color: #1e3a8a; /* Soft blue */
   color: white;
-  border: 2px solid #000;
+  border: none;
   border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 1.5rem;
 }
 
 button[type="submit"]:hover:not(:disabled) {
-  background-color: #0378cc;
-  transform: translateY(-2px);
+  background-color: #1d4ed8; /* Darker blue on hover */
+  transform: translateY(-3px);
 }
 
 button[type="submit"]:disabled {
-  background-color: #ccc;
+  background-color: #ddd;
   cursor: not-allowed;
-}
-
-/* File input styling */
-input[type="file"] {
-  padding: 0.5rem;
-  border: 2px dashed #000;
 }
 
 /* Textarea styling */
 textarea {
-  min-height: 100px;
+  min-height: 120px;
   resize: vertical;
+}
+
+/* Language and select styling */
+select {
+  background-color: #fafafa;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+select:focus {
+  border-color: #1e3a8a; /* Soft blue border on focus */
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
   form {
-    padding: 1.5rem;
+    padding: 2rem;
   }
 
   .date-group {
@@ -169,4 +192,35 @@ textarea {
   .checkbox-group {
     grid-template-columns: 1fr;
   }
+
+  button[type="submit"] {
+    padding: 1rem;
+  }
 }
+/* Back Button Styling */
+.back-btn {
+  padding: 12px 24px; /* Adjust padding for a more balanced button */
+  background-color: #1e3a8a; /* Same soft blue as the form elements */
+  color: white;
+  border: none;
+  border-radius: 8px; /* Rounded corners to match form fields */
+  cursor: pointer;
+  margin-bottom: 2rem; /* Add space below the button */
+  font-size: 1.1rem;
+  font-weight: 600;
+  width: fit-content; /* Makes sure the button width adapts to its content */
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect for Back Button */
+.back-btn:hover {
+  background-color: #125ea2; /* Darker blue on hover */
+  transform: translateY(-3px); /* Slight lift effect */
+}
+
+/* Focus Effect for Back Button */
+.back-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.2); /* Soft blue glow on focus */
+}
+

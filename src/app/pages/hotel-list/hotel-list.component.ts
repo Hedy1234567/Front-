@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-hotel-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './hotel-list.component.html',
   styleUrls: ['./hotel-list.component.css']
 })
@@ -44,4 +44,8 @@ export class HotelListComponent {
   filterByCountry(country: string) {
     this.selectedCountry = country;
   }
+  goHome() {
+    this.router.navigate(['/home']);
+  }
+  
 }

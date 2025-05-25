@@ -1,18 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-check-in',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl:'./check-in.component.html',
+  templateUrl: './check-in.component.html',
   styleUrls: ['./check-in.component.css']
 })
 export class CheckInComponent implements OnInit {
   checkInForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.checkInForm = this.fb.group({
@@ -24,8 +25,7 @@ export class CheckInComponent implements OnInit {
       checkOutDate: ['', Validators.required],
       numberOfGuests: ['', [Validators.required, Validators.min(1)]],
       idType: ['', Validators.required],
-      idNumber: ['', Validators.required],
-      idUpload: [null, Validators.required],
+      // Removed: idNumber
       roomType: ['', Validators.required],
       preferences: this.fb.group({
         nonSmoking: [false],
@@ -51,7 +51,12 @@ export class CheckInComponent implements OnInit {
       this.checkInForm.markAllAsTouched();
     }
   }
+
+  goBack(): void {
+    this.router.navigate(['../home']);
+  }
+
   get formControls() {
-    return this.checkInForm.controls; // Helper getter to access form controls in the template
+    return this.checkInForm.controls;
   }
 }

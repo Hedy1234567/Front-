@@ -1,12 +1,121 @@
-<div class="home-container">
-	<div class="overlay"></div>
-	<div class="content">
-	  <h1>Bienvenue dans notre service de Check-in en ligne</h1>
-	  <p>Simplifiez votre arrivée à l'hôtel avec notre solution rapide et sécurisée.</p>
-	  <div class="button-group">
-		<button routerLink="/login">🔐 Log In</button>
-		<button routerLink="/signup">📝 Sign Up</button>
+<div class="welcome-container">
+	<header class="navbar">
+	  <div class="logo">
+		<img src="assets/images/Nominis.jpg" alt="Nominis logo" />
+		<span>Nominis</span>
+	  </div>
+	  
+	  <div class="auth-buttons">
+		<button class="login" routerLink="/login">Log In</button>
+		<button class="signup">Sign Up</button>
+	  </div>
+	</header>
+  
+	<section class="hero">
+	  <div class="hero-text">
+		<h1>Welcome to Nominis</h1>
+		<p>
+		  Your trusted partner in enhancing your online reputation. Discover our innovative solutions to optimize client interactions and manage feedback effectively.
+		</p>
+		<div class="hero-buttons">
+		  <button class="browse">Our Solutions</button>
+		  <button class="join">Get Started</button>
+		</div>
+	  </div>
+	  <div class="hero-image">
+		<img src="/assets/images/reputation.jpeg" alt="Reputation Management" />
+	  </div>
+	</section>
+  
+	<section class="solutions">
+	  <h2>Our Solutions</h2>
+	  <div class="solution-cards">
+		<div class="solution-card">
+		  <img src="assets/images/hos.png" alt="Hospitality Hero Badge" />
+		  <h3>Hospitality Hero Badge</h3>
+		  <p>
+			Discover our custom badge solution for hotel staff, equipped with QR codes and NFC chips. Enhance client interaction, collect instant reviews, and improve your online reputation—all while providing your team with tools to enhance service quality.
+		  </p>
+		</div>
+		<div class="solution-card">
+		  <img src="assets/images/rev.jpeg" alt="Review Response Management" />
+		  <h3>Review Response Management</h3>
+		  <p>
+			Our dedicated team provides professional and personalized responses to every review on platforms like TripAdvisor and Google. Protect and strengthen your online reputation while turning client feedback into growth opportunities.
+		  </p>
+		</div>
+		<div class="solution-card">
+		  <img src="assets/images/images.jpeg" alt="Traveler TouchPoint" />
+		  <h3>Traveler TouchPoint</h3>
+		  <p>
+			Provide your clients with instant access to essential information and create a personalized experience with an integrated chat system. Simplify customer interaction management with a comprehensive platform.
+		  </p>
+		</div>
+	  </div>
+	</section>
+  
+	<section class="company-description">
+	  <h2>About Nominis</h2>
+	  <p>
+		Nominis is your trusted partner in reputation management. We specialize in providing innovative solutions that help businesses improve their online presence and customer interaction. Our goal is to help you build a strong and positive reputation that fosters growth and customer loyalty.
+	  </p>
+	  <div class="company-values">
+		<h3>Our Values</h3>
+		<ul>
+		  <li><strong>Trust:</strong> We prioritize trust and long-term relationships with our clients.</li>
+		  <li><strong>Innovation:</strong> Continuously exploring new ways to improve online reputation management.</li>
+		  <li><strong>Excellence:</strong> We aim for excellence in every aspect of our service.</li>
+		  <li><strong>Customer-Centric:</strong> Our clients’ success is our success.</li>
+		</ul>
+	  </div>
+	</section>
+  
+	<section class="reviews">
+	  <h2>What Our Clients Say</h2>
+	  <div class="review-cards">
+		<div class="review-card">
+		  <img src="assets/images/ccc.jpeg" alt="Client 1" />
+		  <p>
+			"Nominis helped us completely transform our online reputation. The reviews started coming in fast, and our customer service improved immensely!"
+		  </p>
+		  <strong>John Doe</strong>
+		  <em>Hotel Manager</em>
+		</div>
+		<div class="review-card">
+		  <img src="assets/images/cc.jpeg" alt="Client 2" />
+		  <p>
+			"With Nominis, we managed to address customer feedback quickly and efficiently, boosting our online presence and trust."
+		  </p>
+		  <strong>Jane Smith</strong>
+		  <em>General Manager</em>
+		</div>
+		<div class="review-card">
+		  <img src="assets/images/11.jpeg" alt="Client 3" />
+		  <p>
+			"The Traveler TouchPoint system provided an amazing user experience for our clients. It's easy to use and integrates perfectly with our services."
+		  </p>
+		  <strong>Sarah Lee</strong>
+		  <em>Operations Director</em>
+		</div>
+	  </div>
+	</section>
+  </div>
+  <footer class="footer">
+	<div class="footer-content">
+	  <h3>Nominis</h3>
+	  <p>Votre partenaire de confiance dans la gestion de votre e-réputation dans l’hôtellerie. Nous aidons les établissements à optimiser leur image en ligne avec des solutions innovantes comme les badges NFC, la réponse aux avis, et une plateforme d’interaction client.</p>
+  
+	  <div class="social-icons">
+		<a href="https://facebook.com" target="_blank" aria-label="Facebook">
+		  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.8v-6.9h-2.4v-2.9h2.4V9.6c0-2.4 1.4-3.7 3.5-3.7 1 0 2 .2 2 .2v2.2h-1.1c-1.1 0-1.4.7-1.4 1.4v1.7h2.5l-.4 2.9h-2.1v6.9A10 10 0 0022 12z"/></svg>
+		</a>
+		<a href="https://instagram.com" target="_blank" aria-label="Instagram">
+		  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 2 .3 2.5.5.6.3 1 .7 1.5 1.2.4.5.9 1 .9 1.9.1.9.1 1.5.1 4.8s0 3.6-.1 4.8c-.1 1.2-.3 2-.5 2.5-.3.6-.7 1-1.2 1.5-.5.4-1 .9-1.9.9-.9.1-1.5.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-2-.3-2.5-.5-.6-.3-1-.7-1.5-1.2-.4-.5-.9-1-.9-1.9-.1-.9-.1-1.5-.1-4.8s0-3.6.1-4.8c.1-1.2.3-2 .5-2.5.3-.6.7-1 1.2-1.5.5-.4 1-.9 1.9-.9.9-.1 1.5-.1 4.8-.1m0-2.2C8.7 0 8.3 0 7.1.1 5.8.1 4.9.3 4 .6 3.2 1 2.5 1.6 1.9 2.3c-.6.7-1.2 1.4-1.5 2.5C.1 5.8 0 6.7 0 8v8c0 1.3.1 2.2.4 3.2.3 1.1.9 1.8 1.5 2.5.6.7 1.3 1.3 2.5 1.5C5.8 23.9 6.7 24 8 24h8c1.3 0 2.2-.1 3.2-.4 1.1-.3 1.8-.9 2.5-1.5.7-.6 1.3-1.3 1.5-2.5.3-1 .4-1.9.4-3.2V8c0-1.3-.1-2.2-.4-3.2-.3-1.1-.9-1.8-1.5-2.5C21.3 1.6 20.6 1 19.5.6 18.4.3 17.3.1 16 .1 14.9 0 14.4 0 12 0zM12 5.8A6.2 6.2 0 1012 18.2 6.2 6.2 0 0012 5.8zm0 10.3A4.1 4.1 0 1116.1 12 4.1 4.1 0 0112 16.1zm4.3-10.6a1.4 1.4 0 11-1.4-1.4 1.4 1.4 0 011.4 1.4z"/></svg>
+		</a>
+		<a href="https://nominis.tn" target="_blank" aria-label="Website">
+		  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1 17.9V17h-2v2.9c-3.4-.5-6-3.4-6-6.9 0-.6.1-1.2.2-1.8L9 12v-2H5.3c.7-2.9 3.2-5.1 6.2-5.5V7h2V4.5c1.6.3 3 1.1 4.1 2.3l1.4-1.4c-1.5-1.5-3.5-2.5-5.7-2.5s-4.2 1-5.7 2.5L5.5 6.8C7 5.3 9 4.3 11.3 4v2.5h2V4c3.4.5 6 3.4 6 6.9 0 3.5-2.6 6.4-6 6.9z"/></svg>
+		</a>
 	  </div>
 	</div>
-  </div>
+  </footer>
   

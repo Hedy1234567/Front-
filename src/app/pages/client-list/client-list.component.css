@@ -1,7 +1,7 @@
 .client-list-container {
     max-width: 1000px;
     margin: 40px auto;
-    margin-left: 370px;
+    margin-left: 430px;
     padding: 20px;
     background-color: #e3f2fd;
     border-radius: 12px;
@@ -166,4 +166,17 @@
   font-size: 14px;
   color: #6c7293;
   margin: 8px 0;
+}
+.back-btn {
+  padding: 10px 20px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.back-btn:hover {
+  background-color: #125ea2;
 }

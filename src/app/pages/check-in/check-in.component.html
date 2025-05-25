@@ -1,145 +1,108 @@
-<form [formGroup]="checkInForm" (ngSubmit)="onSubmit()" novalidate>
-  <!-- Guest Information -->
+<button class="back-btn" (click)="goBack()">← Back to Home</button>
+
+<form [formGroup]="checkInForm" (ngSubmit)="onSubmit()">
   <h1>Hotel Check-In</h1>
-  
+
   <div>
     <label for="fullName">Full Name</label>
-    <input id="fullName" formControlName="fullName" placeholder="Full Name" />
-    <div *ngIf="formControls['fullName'].invalid && formControls['fullName'].touched" class="error-message">
-      Full Name is required and must be at least 3 characters long.
+    <input id="fullName" type="text" formControlName="fullName" />
+    <div class="error-message" *ngIf="formControls['fullName'].touched && formControls['fullName'].invalid">
+      Name must be at least 3 characters.
     </div>
   </div>
 
-  <!-- Email -->
   <div>
-    <label for="email">Email Address</label>
-    <input id="email" formControlName="email" placeholder="Email Address" />
-    <div *ngIf="formControls['email'].invalid && formControls['email'].touched" class="error-message">
-      Please enter a valid email address.
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" />
+    <div class="error-message" *ngIf="formControls['email'].touched && formControls['email'].invalid">
+      Valid email is required.
     </div>
   </div>
 
-  <!-- Phone Number -->
   <div>
     <label for="phoneNumber">Phone Number</label>
-    <input id="phoneNumber" formControlName="phoneNumber" placeholder="Phone Number" />
-    <div *ngIf="formControls['phoneNumber'].invalid && formControls['phoneNumber'].touched" class="error-message">
-      Phone number must be between 8 and 15 digits.
+    <input id="phoneNumber" type="text" formControlName="phoneNumber" />
+    <div class="error-message" *ngIf="formControls['phoneNumber'].touched && formControls['phoneNumber'].invalid">
+      Valid phone number is required.
     </div>
   </div>
 
-  <!-- Booking Details -->
   <div>
-    <label for="bookingReference">Booking Reference Number</label>
-    <input id="bookingReference" formControlName="bookingReference" placeholder="Booking Reference Number" />
-    <div *ngIf="formControls['bookingReference'].invalid && formControls['bookingReference'].touched" class="error-message">
-      Booking Reference is required.
-    </div>
+    <label for="bookingReference">Booking Reference</label>
+    <input id="bookingReference" type="text" formControlName="bookingReference" />
   </div>
 
-  <!-- Check-In and Check-Out Dates -->
   <div class="date-group">
     <div>
-      <label for="checkInDate">Check-In Date</label>
+      <label for="checkInDate">Check-in Date</label>
       <input id="checkInDate" type="date" formControlName="checkInDate" />
     </div>
     <div>
-      <label for="checkOutDate">Check-Out Date</label>
+      <label for="checkOutDate">Check-out Date</label>
       <input id="checkOutDate" type="date" formControlName="checkOutDate" />
     </div>
   </div>
 
-  <!-- Number of Guests -->
   <div>
     <label for="numberOfGuests">Number of Guests</label>
     <input id="numberOfGuests" type="number" formControlName="numberOfGuests" />
-    <div *ngIf="formControls['numberOfGuests'].invalid && formControls['numberOfGuests'].touched" class="error-message">
-      Number of guests must be at least 1.
-    </div>
   </div>
 
-  <!-- Identification -->
   <div>
     <label for="idType">ID Type</label>
     <select id="idType" formControlName="idType">
+      <option value="" disabled selected>Select ID Type</option>
       <option value="passport">Passport</option>
-      <option value="national_id">National ID</option>
-      <option value="driver_license">Driver's License</option>
+      <option value="driverLicense">Driver's License</option>
     </select>
   </div>
-  <div>
-    <label for="idNumber">ID Number</label>
-    <input id="idNumber" formControlName="idNumber" placeholder="ID Number" />
-  </div>
-  <div>
-    <label for="idUpload">Upload ID</label>
-    <input id="idUpload" type="file" formControlName="idUpload" />
-  </div>
 
-  <!-- Room Preferences -->
+  <!-- Removed ID number field -->
+
   <div>
     <label for="roomType">Room Type</label>
     <select id="roomType" formControlName="roomType">
+      <option value="" disabled selected>Select Room Type</option>
       <option value="single">Single</option>
       <option value="double">Double</option>
       <option value="suite">Suite</option>
-      <option value="penthouse">Penthouse</option>
     </select>
   </div>
 
-  <!-- Preferences -->
   <fieldset>
-    <legend>Room Preferences</legend>
+    <legend>Preferences</legend>
     <div class="checkbox-group">
-      <label>
-        <input type="checkbox" formControlName="preferences.nonSmoking" />
-        Non-Smoking Room
-      </label>
-      <label>
-        <input type="checkbox" formControlName="preferences.highFloor" />
-        High Floor
-      </label>
-      <label>
-        <input type="checkbox" formControlName="preferences.nearElevator" />
-        Near Elevator
-      </label>
+      <label><input type="checkbox" formControlName="nonSmoking" /> Non-Smoking Room</label>
+      <label><input type="checkbox" formControlName="highFloor" /> High Floor</label>
+      <label><input type="checkbox" formControlName="nearElevator" /> Near Elevator</label>
     </div>
   </fieldset>
 
-  <!-- Additional Services -->
   <fieldset>
-    <legend>Additional Services</legend>
+    <legend>Extras</legend>
     <div class="checkbox-group">
-      <label>
-        <input type="checkbox" formControlName="extras.breakfast" />
-        Breakfast Included
-      </label>
-      <label>
-        <input type="checkbox" formControlName="extras.airportPickup" />
-        Airport Pickup
-      </label>
-      <label>
-        <input type="checkbox" formControlName="extras.spaAccess" />
-        Spa Access
-      </label>
-      <label>
-        <input type="checkbox" formControlName="extras.lateCheckout" />
-        Late Checkout
-      </label>
+      <label><input type="checkbox" formControlName="breakfast" /> Breakfast</label>
+      <label><input type="checkbox" formControlName="airportPickup" /> Airport Pickup</label>
+      <label><input type="checkbox" formControlName="spaAccess" /> Spa Access</label>
+      <label><input type="checkbox" formControlName="lateCheckout" /> Late Checkout</label>
     </div>
-    <textarea formControlName="specialRequests" placeholder="Any special requests? (e.g., allergies, honeymoon setup)"></textarea>
   </fieldset>
 
-  <!-- Terms & Confirmation -->
+  <div>
+    <label for="specialRequests">Special Requests</label>
+    <textarea id="specialRequests" formControlName="specialRequests"></textarea>
+  </div>
+
   <div class="terms">
-    <label>
-      <input type="checkbox" formControlName="agreeTerms" />
-      I confirm that the information provided is accurate and I accept the hotel's policies.
-    </label>
-    <div *ngIf="formControls['agreeTerms'].invalid && formControls['agreeTerms'].touched" class="error-message">
-      You must agree to the terms to proceed.
-    </div>
-  
-    <button type="submit" [disabled]="checkInForm.invalid">Check In</button>
-  
-  
+    <input type="checkbox" id="agreeTerms" formControlName="agreeTerms" />
+    <label for="agreeTerms">I agree to the terms and conditions</label>
+  </div>
+
+  <!-- ✅ Carte Bancaire Upload -->
+  <div>
+    <label for="cardUpload">Upload Carte Bancaire</label>
+    <input type="file" id="cardUpload" />
+  </div>
+
+  <button type="submit" [disabled]="checkInForm.invalid">Submit</button>
+</form>

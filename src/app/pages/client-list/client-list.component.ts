@@ -5,14 +5,9 @@ import { Router } from '@angular/router';
 
 interface Reservation {
   name: string;
-  hotel: string;
-  roomType: string;
-  reservationType: string;
-  checkIn: string;
-  checkOut: string;
-  rooms: number;
-  guests: number;
-  status: string;
+  email: string;
+  phone: string;
+  address: string;
 }
 
 @Component({
@@ -30,69 +25,39 @@ export class ClientListComponent {
   reservations: Reservation[] = [
     {
       name: 'John Doe',
-      hotel: 'Hotel Sunshine',
-      roomType: 'Deluxe',
-      reservationType: 'Online',
-      checkIn: '2025-04-10',
-      checkOut: '2025-04-15',
-      rooms: 2,
-      guests: 4,
-      status: 'Confirmed'
+      email: 'john.doe@example.com',
+      phone: '+1 234 567 890',
+      address: '123 Main St, New York'
     },
     {
       name: 'Sarah Smith',
-      hotel: 'Mountain Inn',
-      roomType: 'Suite',
-      reservationType: 'Phone',
-      checkIn: '2025-04-12',
-      checkOut: '2025-04-16',
-      rooms: 1,
-      guests: 2,
-      status: 'Pending'
+      email: 'sarah.smith@example.com',
+      phone: '+1 987 654 321',
+      address: '456 Elm St, Los Angeles'
     },
     {
       name: 'Ali Ben Salah',
-      hotel: 'Tunisia Palace',
-      roomType: 'Double',
-      reservationType: 'In-person',
-      checkIn: '2025-04-14',
-      checkOut: '2025-04-18',
-      rooms: 3,
-      guests: 6,
-      status: 'Cancelled'
+      email: 'ali.bensalah@example.com',
+      phone: '+216 20 123 456',
+      address: 'Rue de Carthage, Tunis'
     },
     {
       name: 'Emma Brown',
-      hotel: 'Ocean View Resort',
-      roomType: 'Superior',
-      reservationType: 'Online',
-      checkIn: '2025-04-15',
-      checkOut: '2025-04-17',
-      rooms: 1,
-      guests: 1,
-      status: 'Confirmed'
+      email: 'emma.brown@example.com',
+      phone: '+44 20 1234 5678',
+      address: '78 Queen St, London'
     },
     {
       name: 'Mohamed Kacem',
-      hotel: 'Dunes Hotel',
-      roomType: 'Standard',
-      reservationType: 'Online',
-      checkIn: '2025-04-18',
-      checkOut: '2025-04-22',
-      rooms: 2,
-      guests: 2,
-      status: 'Pending'
+      email: 'mohamed.kacem@example.com',
+      phone: '+216 98 765 432',
+      address: 'Avenue Habib Bourguiba, Sfax'
     },
     {
       name: 'Lina Chen',
-      hotel: 'City Central Hotel',
-      roomType: 'Presidential Suite',
-      reservationType: 'App',
-      checkIn: '2025-04-20',
-      checkOut: '2025-04-25',
-      rooms: 1,
-      guests: 2,
-      status: 'Confirmed'
+      email: 'lina.chen@example.com',
+      phone: '+86 10 1234 5678',
+      address: 'No. 88, Beijing Rd, Shanghai'
     }
   ];
 
@@ -104,5 +69,10 @@ export class ClientListComponent {
 
   viewClientDetails(reservation: Reservation) {
     this.router.navigate(['/client-reservation'], { state: { reservation } });
+  }
+
+  // Method to navigate back
+  goBack() {
+    this.router.navigate(['../home']);  // Navigates back to the previous route (relative navigation)
   }
 }

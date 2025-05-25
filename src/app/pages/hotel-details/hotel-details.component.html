@@ -1,7 +1,7 @@
  <!-- Sidebar -->
  <div class="sidebar">
   <div class="logo-container">
-    <img src="assets/logo.png" class="logo" />
+    <img src="assets/images/Nominis.jpg" class="logo" />
     <h2 class="company-name">Nominis</h2>
   </div>
   <a routerLink="/hotels">🏨 Hôtels</a>
@@ -56,9 +56,23 @@
 
   <label>Nombre d'étoiles :</label>
   <input type="number" [(ngModel)]="hotel.stars" min="1" max="5" placeholder="Entre 1 et 5" />
+  <!-- ✅ NEW SECTION: Room Types -->
+  <div class="room-types-section">
+    <h3>Nombre de chambres par type</h3>
+
+    <label>Chambres simples :</label>
+    <input type="number" [(ngModel)]="hotel.roomTypes.single" min="0" placeholder="Nombre de chambres simples" />
+
+    <label>Chambres doubles :</label>
+    <input type="number" [(ngModel)]="hotel.roomTypes.double" min="0" placeholder="Nombre de chambres doubles" />
+
+    <label>Suites :</label>
+    <input type="number" [(ngModel)]="hotel.roomTypes.suite" min="0" placeholder="Nombre de suites" />
+  </div>
 
   <label>Description :</label>
   <textarea [(ngModel)]="hotel.description" placeholder="Description de l'hôtel"></textarea>
+
 
   <div class="personnel-section">
     <h3>Personnel de l'hôtel</h3>
@@ -81,6 +95,7 @@
   </div>
 
   <div class="button-row">
+    <button (click)="goBack()" class="back-btn">⬅ Retour</button>
     <button (click)="saveHotel()" class="save-btn">Enregistrer</button>
     <button (click)="cancel()" class="cancel-btn">Annuler</button>
   </div>

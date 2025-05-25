@@ -5,22 +5,98 @@
   box-sizing: border-box;
 }
 
+/* Body Styling */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #62626295;
   color: #a5a7a9;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   padding: 20px;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  background-color: #f4f4f4; /* Removed background image */
+}
+
+/* Top Bar */
+.top-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff; /* White background */
+  color: #000000; /* Black text */
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for elegance */
+}
+
+/* Logo Styling */
+.logo-container {
+  position: absolute;
+  left: 20px;
+}
+
+.logo {
+  height: 40px; /* Adjust the size of your logo */
+  width: auto;
+}
+
+/* Login Page Layout */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  gap: 20px;
+  z-index: 0;
+  padding-top: 80px; /* Increased padding to avoid overlap with the top bar */
+}
+
+/* Photo Sections */
+.photo-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left img, .right img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  max-width: 300px;
+}
+
+/* Left Photo Section */
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Right Photo Section */
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Login Container */
 .login-container {
   width: 300px;
   margin: 100px auto;
-  background-color: #faf6f6f1;
+  background-color: rgba(250, 246, 246, 0.9); /* Slight opacity for better visibility */
   padding: 40px 30px;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -35,7 +111,7 @@ body {
 /* Fade-In Animation */
 @keyframes fadeIn {
   0% {
-    opacity: 10;
+    opacity: 0;
     transform: translateY(-30px);
   }
   100% {
@@ -110,4 +186,16 @@ button:hover {
 button:active {
   background-color: #0d47a1;
   transform: scale(1.1);
+}
+
+/* Info Text Below Login */
+.info-text {
+  font-size: 14px;
+  color: #555;
+  margin-top: 15px;
+}
+
+/* Adjust Photo Section Width */
+.photo-section {
+  max-width: 350px;
 }

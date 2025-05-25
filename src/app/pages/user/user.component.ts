@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Router } from '@angular/router'; // Import RouterModule here
+import { RouterModule, Router } from '@angular/router';
 
 interface User {
   id: number;
@@ -12,18 +12,17 @@ interface User {
   shift: string;
   checkIn: string;
   checkOut: string;
-  role: 'admin' | 'client' | 'manager' | 'extra' | 'receptionist' | 'supervisor'; // Add new roles here
+  role: 'admin' | 'client' | 'manager' | 'extra' | 'receptionist' | 'supervisor';
 }
 
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule], // Add RouterModule here
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css'],
 })
 export class UserListComponent {
-  // Updated user list with more roles and users
   users: User[] = [
     {
       id: 1,
@@ -74,7 +73,7 @@ export class UserListComponent {
       name: 'Tom Green',
       address: '202 Birch Blvd, Riverdale',
       email: 'tom.green@example.com',
-      role: 'receptionist',  // New role added
+      role: 'receptionist',
       hotel: 'royal',
       checkIn: '2025-04-12',
       checkOut: '2025-04-18',
@@ -85,7 +84,7 @@ export class UserListComponent {
       name: 'Sarah Brown',
       address: '303 Cedar St, Brookfield',
       email: 'sarah.brown@example.com',
-      role: 'supervisor',  // New role added
+      role: 'supervisor',
       hotel: 'royal',
       checkIn: '2025-04-14',
       checkOut: '2025-04-19',
@@ -96,7 +95,7 @@ export class UserListComponent {
       name: 'Chris Black',
       address: '404 Pine Rd, Rivertown',
       email: 'chris.black@example.com',
-      role: 'receptionist',  // New role added
+      role: 'receptionist',
       hotel: 'royal',
       checkIn: '2025-04-15',
       checkOut: '2025-04-20',
@@ -108,5 +107,9 @@ export class UserListComponent {
 
   viewDetails(user: User) {
     this.router.navigate(['/user-details'], { state: { user } });
+  }
+
+  goBack() {
+    this.router.navigate(['/home']); // Navigate back to home page or previous desired route
   }
 }
