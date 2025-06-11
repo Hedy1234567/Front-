@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { HotelService, Hotel } from '../../services/hotel.service';
 
 @Component({
   selector: 'app-hotel-list',
@@ -9,15 +10,17 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './hotel-list.component.html',
   styleUrls: ['./hotel-list.component.css']
 })
-export class HotelListComponent {
-  hotels = [
-    { name: 'Hôtel de Paris', city: 'Paris', country: 'France', stars: '⭐⭐⭐⭐' },
-    { name: 'Hôtel du Soleil', city: 'Tunis', country: 'Tunisie', stars: '⭐⭐⭐' },
-    { name: 'Kenzi Menara Palace', city: 'Marrakech', country: 'Maroc', stars: '⭐⭐⭐⭐⭐' },
-    { name: 'Royal Tulip', city: 'Alger', country: 'Algérie', stars: '⭐⭐⭐⭐' }
-  ];
-
+export class HotelListComponent implements OnInit {
+  hotels: Hotel[] = [];
   selectedCountry: string = 'All';
+
+  constructor(private router: Router, private hotelService: HotelService) {}
+
+  ngOnInit() {
+    this.hotelService.getHotels().subscribe((data) => {
+      this.hotels = data;
+    });
+  }
 
   get filteredHotels() {
     if (this.selectedCountry === 'All') {
@@ -25,8 +28,6 @@ export class HotelListComponent {
     }
     return this.hotels.filter(hotel => hotel.country === this.selectedCountry);
   }
-
-  constructor(private router: Router) {}
 
   goToAddHotel() {
     this.router.navigate(['/hotel-details']);
@@ -47,5 +48,4 @@ export class HotelListComponent {
   goHome() {
     this.router.navigate(['/home']);
   }
-  
 }

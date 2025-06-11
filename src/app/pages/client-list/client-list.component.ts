@@ -1,14 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-
-interface Reservation {
-  name: string;
-  email: string;
-  phone: string;
-  address: string;
-}
+import { ClientService, Client } from '../../services/client.service';
 
 @Component({
   selector: 'app-client-list',
@@ -17,62 +11,29 @@ interface Reservation {
   templateUrl: './client-list.component.html',
   styleUrls: ['./client-list.component.css']
 })
-export class ClientListComponent {
-  constructor(private router: Router) {}
-
+export class ClientListComponent implements OnInit {
   searchQuery = '';
+  clients: Client[] = [];
 
-  reservations: Reservation[] = [
-    {
-      name: 'John Doe',
-      email: 'john.doe@example.com',
-      phone: '+1 234 567 890',
-      address: '123 Main St, New York'
-    },
-    {
-      name: 'Sarah Smith',
-      email: 'sarah.smith@example.com',
-      phone: '+1 987 654 321',
-      address: '456 Elm St, Los Angeles'
-    },
-    {
-      name: 'Ali Ben Salah',
-      email: 'ali.bensalah@example.com',
-      phone: '+216 20 123 456',
-      address: 'Rue de Carthage, Tunis'
-    },
-    {
-      name: 'Emma Brown',
-      email: 'emma.brown@example.com',
-      phone: '+44 20 1234 5678',
-      address: '78 Queen St, London'
-    },
-    {
-      name: 'Mohamed Kacem',
-      email: 'mohamed.kacem@example.com',
-      phone: '+216 98 765 432',
-      address: 'Avenue Habib Bourguiba, Sfax'
-    },
-    {
-      name: 'Lina Chen',
-      email: 'lina.chen@example.com',
-      phone: '+86 10 1234 5678',
-      address: 'No. 88, Beijing Rd, Shanghai'
-    }
-  ];
+  constructor(private router: Router, private clientService: ClientService) {}
 
-  get filteredReservations(): Reservation[] {
-    return this.reservations.filter(res =>
-      res.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+  ngOnInit() {
+    this.clientService.getClients().subscribe((data) => {
+      this.clients = data;
+    });
+  }
+
+  get filteredClients(): Client[] {
+    return this.clients.filter(client =>
+      client.name.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
   }
 
-  viewClientDetails(reservation: Reservation) {
-    this.router.navigate(['/client-reservation'], { state: { reservation } });
+  viewClientDetails(client: Client) {
+    this.router.navigate(['/client-reservation', client.id]);
   }
 
-  // Method to navigate back
   goBack() {
-    this.router.navigate(['../home']);  // Navigates back to the previous route (relative navigation)
+    this.router.navigate(['../home']);
   }
 }

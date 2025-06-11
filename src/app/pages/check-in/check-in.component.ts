@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CheckInService, CheckIn } from '../../services/check-in.service';
 
 @Component({
   selector: 'app-check-in',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 export class CheckInComponent implements OnInit {
   checkInForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router, private checkInService: CheckInService) {}
 
   ngOnInit(): void {
     this.checkInForm = this.fb.group({
@@ -25,7 +26,6 @@ export class CheckInComponent implements OnInit {
       checkOutDate: ['', Validators.required],
       numberOfGuests: ['', [Validators.required, Validators.min(1)]],
       idType: ['', Validators.required],
-      // Removed: idNumber
       roomType: ['', Validators.required],
       preferences: this.fb.group({
         nonSmoking: [false],
@@ -45,9 +45,17 @@ export class CheckInComponent implements OnInit {
 
   onSubmit(): void {
     if (this.checkInForm.valid) {
-      console.log('Form Submitted:', this.checkInForm.value);
+      this.checkInService.createCheckIn(this.checkInForm.value).subscribe({
+        next: (res) => {
+          alert('Check-in enregistré avec succès !');
+          this.router.navigate(['/home']);
+        },
+        error: (err) => {
+          alert('Erreur lors de l\'enregistrement du check-in.');
+          console.error(err);
+        }
+      });
     } else {
-      console.log('Form is invalid');
       this.checkInForm.markAllAsTouched();
     }
   }
