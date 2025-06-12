@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 import { Location } from '@angular/common';
 import { HotelService } from '../../services/hotel.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-hotel-details',
@@ -15,17 +17,18 @@ import { HotelService } from '../../services/hotel.service';
 export class HotelDetailsComponent implements OnInit {
   showAddressDetails = false;
 
-  hotel = {
+  getEmptyHotel() {
+  return {
     id: undefined,
     name: '',
-    address: '',
-    stars: 0,
+    rating: 0,
     description: '',
-    addressDetails: {
+    adresse: {
       streetName: '',
       streetNumber: '',
       postalCode: '',
-      city: ''
+      city: '',
+      country: ''
     },
     roomTypes: {
       single: 0,
@@ -33,11 +36,31 @@ export class HotelDetailsComponent implements OnInit {
       suite: 0
     }
   };
+};
+  hotel = {
+    id: undefined,
+    name: '',
+    rating: 0,
+    description: '',
+    adresse: {
+      streetName: '',
+      streetNumber: '',
+      postalCode: '',
+      city: '',
+      country: ''
+    },
+    roomTypes: {
+      single: 0,
+      double: 0,
+      suite: 0
+    },
+  };
   personnelList = [
     {
-      fullName: '',
+      name: '',
       phone: '',
-      role: ''
+      role: '',
+      email:''
     }
   ];
 
@@ -61,9 +84,10 @@ export class HotelDetailsComponent implements OnInit {
 
   addPersonnel() {
     const newPersonnel = {
-      fullName: '',
+      name: '',
       phone: '',
-      role: ''
+      role: '',
+      email : '',
     };
     // Appel à l'API pour ajouter le personnel si besoin
     if (this.hotel.id) {
@@ -82,23 +106,40 @@ export class HotelDetailsComponent implements OnInit {
     this.personnelList.splice(index, 1);
   }
 
-  saveHotel() {
-    // On s'assure que l'objet envoyé correspond bien à l'interface Hotel attendue par le service
-    const hotelToSend: any = {
-      ...this.hotel,
-      personnel: this.personnelList
-    };
-    // Pour update, il faut que hotelToSend ait les propriétés attendues par l'API (id, name, city, country, stars, etc.)
-    if (hotelToSend.id) {
-      this.hotelService.updateHotel(hotelToSend as any).subscribe(() => {
-        this.router.navigate(['/hotel-list']);
+saveHotel() {
+  const hotelToSend: any = {
+    ...this.hotel,
+    personnel: this.personnelList
+  };
+
+  if (hotelToSend.id) {
+    // UPDATE
+    this.hotelService.updateHotel(hotelToSend).subscribe(() => {
+      this.router.navigate(['/hotels']);
+    });
+  } else {
+    // CREATE
+    this.hotelService.createHotel(hotelToSend).subscribe(() => {
+      Swal.fire({
+        title: 'Hôtel créé avec succès !',
+        text: 'Souhaitez-vous créer un autre hôtel ou revenir à la liste ?',
+        icon: 'success',
+        showCancelButton: true,
+        confirmButtonText: 'Nouveau hôtel',
+        cancelButtonText: 'Retour à la liste'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Réinitialiser les champs de l'hôtel pour créer un nouveau
+          this.hotel = this.getEmptyHotel(); // ou utiliser this.hotelForm.reset() si tu utilises un formulaire
+          this.personnelList = [];
+        } else {
+          // Retour à la liste
+          this.router.navigate(['/hotels']);
+        }
       });
-    } else {
-      this.hotelService.createHotel(hotelToSend as any).subscribe(() => {
-        this.router.navigate(['/hotel-list']);
-      });
-    }
+    });
   }
+}
 
   cancel() {
     this.router.navigate(['/hotel-list']);

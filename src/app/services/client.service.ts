@@ -7,7 +7,7 @@ export interface Client {
   name: string;
   email: string;
   phone: string;
-  address: string;
+  adresse: string;
   // Ajoutez d'autres champs selon votre modèle backend
 }
 
@@ -15,7 +15,7 @@ export interface Client {
   providedIn: 'root'
 })
 export class ClientService {
-  private apiUrl = 'http://localhost:8000/clients'; // À adapter selon votre backend
+  private apiUrl = 'http://localhost:5000/client'; // À adapter selon votre backend
 
   constructor(private http: HttpClient) {}
 

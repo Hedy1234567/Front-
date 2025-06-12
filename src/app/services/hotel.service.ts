@@ -30,7 +30,7 @@ export class HotelService {
   }
 
   createHotel(hotel: Hotel): Observable<Hotel> {
-    return this.http.post<Hotel>(this.apiUrl, hotel);
+    return this.http.post<Hotel>(this.apiUrl+"/add", hotel);
   }
 
   updateHotel(hotel: Hotel): Observable<Hotel> {

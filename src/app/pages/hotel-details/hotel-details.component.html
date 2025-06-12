@@ -38,24 +38,24 @@
   <input type="text" [(ngModel)]="hotel.name" placeholder="Nom de l'hôtel" />
 
   <label>Adresse :</label>
-  <input type="text" [(ngModel)]="hotel.address" placeholder="Adresse de l'hôtel" (click)="showAddressDetails = true" />
+  <input type="text" [(ngModel)]="hotel.adresse.streetName" placeholder="Adresse de l'hôtel" (click)="showAddressDetails = true" />
 
   <div *ngIf="showAddressDetails" class="extra-address-fields">
     <label>Nom de rue :</label>
-    <input type="text" [(ngModel)]="hotel.addressDetails.streetName" placeholder="Rue" />
+    <input type="text" [(ngModel)]="hotel.adresse.streetName" placeholder="Rue" />
 
     <label>Numéro :</label>
-    <input type="text" [(ngModel)]="hotel.addressDetails.streetNumber" placeholder="Numéro" />
+    <input type="text" [(ngModel)]="hotel.adresse.streetNumber" placeholder="Numéro" />
 
     <label>Code postal :</label>
-    <input type="text" [(ngModel)]="hotel.addressDetails.postalCode" placeholder="Code postal" />
+    <input type="text" [(ngModel)]="hotel.adresse.postalCode" placeholder="Code postal" />
 
     <label>Ville :</label>
-    <input type="text" [(ngModel)]="hotel.addressDetails.city" placeholder="Ville" />
+    <input type="text" [(ngModel)]="hotel.adresse.city" placeholder="Ville" />
   </div>
 
   <label>Nombre d'étoiles :</label>
-  <input type="number" [(ngModel)]="hotel.stars" min="1" max="5" placeholder="Entre 1 et 5" />
+  <input type="number" [(ngModel)]="hotel.rating" min="1" max="5" placeholder="Entre 1 et 5" />
   <!-- ✅ NEW SECTION: Room Types -->
   <div class="room-types-section">
     <h3>Nombre de chambres par type</h3>
@@ -79,7 +79,7 @@
 
     <div *ngFor="let personnel of personnelList; let i = index" class="personnel-card">
       <label>Nom complet :</label>
-      <input type="text" [(ngModel)]="personnel.fullName" placeholder="Nom complet" />
+      <input type="text" [(ngModel)]="personnel.name" placeholder="Nom complet" />
 
       <label>Téléphone :</label>
       <input type="text" [(ngModel)]="personnel.phone" placeholder="Téléphone" />
