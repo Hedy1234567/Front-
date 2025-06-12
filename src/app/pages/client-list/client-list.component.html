@@ -49,13 +49,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let reservation of filteredReservations">
-        <td>{{ reservation.name }}</td>
-        <td>{{ reservation.email }}</td>
-        <td>{{ reservation.phone }}</td>
-        <td>{{ reservation.address }}</td>
+      <tr *ngFor="let client of filteredClients">
+        <td>{{ client.name }}</td>
+        <td>{{ client.email }}</td>
+        <td>{{ client.phone }}</td>
+        <td>{{ client.address }}</td>
         <td>
-          <button (click)="viewClientDetails(reservation)">View Details</button>
+          <button (click)="viewClientDetails(client)">View Details</button>
         </td>
       </tr>
     </tbody>
