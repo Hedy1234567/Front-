@@ -36,4 +36,8 @@ export class ClientListComponent implements OnInit {
   goBack() {
     this.router.navigate(['../home']);
   }
+
+  isAdmin(): boolean {
+    return localStorage.getItem('role') === 'Admin';
+  }
 }

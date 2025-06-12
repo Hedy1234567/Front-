@@ -21,6 +21,7 @@ export class LoginComponent {
     const success = this.auth.login(this.username, this.password);
     if (success) {
       this.router.navigate(['/home']);
+      localStorage.setItem('role', "Admin")
     } else {
       alert('Identifiants incorrects !');
     }

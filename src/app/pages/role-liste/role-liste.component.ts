@@ -35,5 +35,11 @@ export class RoleListeComponent {
   goBack() {
     this.router.navigate(['/home']); // or navigate to another page you want as "back"
   }
-  
+  addRole(){
+    
+  }
+  isAdmin(): boolean {
+    // Check if localStorage 'role' is exactly 'Admin'
+    return localStorage.getItem('role') === 'Admin';
+  }
 }

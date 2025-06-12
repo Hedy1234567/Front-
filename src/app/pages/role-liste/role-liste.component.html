@@ -5,12 +5,12 @@
       <img src="assets/images/Nominis.jpg" class="logo" />
       <h2 class="company-name">Nominis</h2>
     </div>
-    <a routerLink="/hotels">🏨 Hôtels</a>
+    <a routerLink="/hotels" *ngIf="isAdmin()">🏨 Hôtels</a>
     <a routerLink="/clients">👤 Clients</a>
     <a routerLink="/reservations">📅 Réservations</a>
     <a routerLink="/Marketplace">🛍️ Marketplace</a>
-    <a routerLink="/role">👥 Roles</a>
-    <a routerLink="/user">👤 Users</a>
+    <a [routerLink]="['/role']" *ngIf="isAdmin()">👥 Roles</a>
+    <a routerLink="/user" *ngIf="isAdmin()">👤 Users</a>
     <a routerLink="/login" class="logout-link">🔓 Déconnexion</a>
 
     <div class="additional-info">
@@ -33,6 +33,7 @@
 
   <!-- Main Content -->
   <div class="main-content">
+    <button class="add-btn" (click)="addRole()">➕ Add Role</button>
     <button class="back-btn" (click)="goBack()">⬅️ Back</button>
 
     <h1>Liste des Rôles</h1>

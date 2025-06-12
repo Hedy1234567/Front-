@@ -133,4 +133,8 @@ export class CheckInComponent implements OnInit {
       });
     }
   }
+
+  isAdmin(): boolean {
+    return localStorage.getItem('role') === 'Admin';
+  }
 }

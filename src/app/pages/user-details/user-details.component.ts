@@ -33,4 +33,8 @@ export class UserDetailsComponent implements OnInit {
   goBack() {
     this.location.back();
   }
+
+  isAdmin(): boolean {
+    return localStorage.getItem('role') === 'Admin';
+  }
 }

@@ -55,4 +55,7 @@ export class HotelListComponent implements OnInit {
   getStars(rating: number): number[] {
   return Array(rating).fill(0);
 }
+isAdmin(): boolean {
+  return localStorage.getItem('role') === 'Admin';
+}
 }

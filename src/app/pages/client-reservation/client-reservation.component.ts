@@ -22,4 +22,7 @@ export class ClientReservationComponent {
   goBack() {
     this.location.back();
   }
+   isAdmin(): boolean {
+    return localStorage.getItem('role') === 'Admin';
+  }
 }

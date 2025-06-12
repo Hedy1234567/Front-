@@ -148,4 +148,8 @@ saveHotel() {
   goBack() {
     this.location.back(); // Navigates to the previous page
   }
+
+  isAdmin(): boolean {
+    return localStorage.getItem('role') === 'Admin';
+  }
 }
