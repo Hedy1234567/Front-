@@ -1,34 +1,23 @@
-// Définition des interfaces en haut du fichier
-export interface Adresse {
-  id: number;
-  streetName: string;
-  postalCode: number;
-  city: string;
-  country: string;
-  streetNumber: number;
-}
-
-export interface Hotel {
-  id: number;
-  name: string;
-  rating: number;
-  single: number;
-  double: number;
-  suite: number;
-  description: string;
-  adresse_id: number;
-  adresse: Adresse;
-}
-
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
+export interface address {
+  city: string;
+  country: string;
+}
+export interface Hotel {
+  id: number;
+  name: string;
+  adresse : address ;
+  rating: number;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class HotelService {
-  private apiUrl = 'http://localhost:8000/hotels/hotels'; // Adapter l'URL si besoin
+  private apiUrl = 'http://localhost:5000/hotels'; // Adapter l'URL si besoin
 
   constructor(private http: HttpClient) {}
 

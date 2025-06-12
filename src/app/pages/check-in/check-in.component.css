@@ -57,7 +57,7 @@ textarea {
   font-size: 1.1rem;
   background-color: #fafafa; /* Light grayish background */
   transition: all 0.3s ease;
-  color: #333;
+  color: #000 !important;
 }
 
 input:focus,
