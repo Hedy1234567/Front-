@@ -56,11 +56,11 @@ export class CheckInComponent implements OnInit {
     if (this.checkInForm.valid) {
       this.checkInService.createCheckIn(this.checkInForm.value).subscribe({
         next: (res) => {
-          alert('Check-in enregistré avec succès !');
+          alert('Check-in successfully saved!');
           this.router.navigate(['/home']);
         },
         error: (err) => {
-          alert('Erreur lors de l\'enregistrement du check-in.');
+          alert('Error while saving check-in.');
           console.error(err);
         }
       });
@@ -89,7 +89,7 @@ export class CheckInComponent implements OnInit {
     this.rectoFile = file;
     this.apiCardData = undefined;
     if (this.rectoFile && this.versoFile) {
-      this.rectoText = 'Extraction en cours...';
+      this.rectoText = 'Extraction in progress...';
       this.cardOcrService.extractCardDetails(this.rectoFile, this.versoFile).subscribe({
         next: (result) => {
           this.rectoText = '';
@@ -102,7 +102,7 @@ export class CheckInComponent implements OnInit {
           });
         },
         error: () => {
-          this.rectoText = "Erreur lors de l'extraction du texte.";
+          this.rectoText = 'Error during extraction.';
           this.apiCardData = undefined;
         }
       });
@@ -114,7 +114,7 @@ export class CheckInComponent implements OnInit {
     this.versoFile = file;
     this.apiCardData = undefined;
     if (this.rectoFile && this.versoFile) {
-      this.rectoText = 'Extraction en cours...';
+      this.rectoText = 'Extraction in progress...';
       this.cardOcrService.extractCardDetails(this.rectoFile, this.versoFile).subscribe({
         next: (result: any) => {
           this.rectoText = '';
@@ -127,7 +127,7 @@ export class CheckInComponent implements OnInit {
           });
         },
         error: () => {
-          this.rectoText = "Erreur lors de l'extraction du texte.";
+          this.rectoText = 'Error during extraction.';
           this.apiCardData = undefined;
         }
       });

@@ -5,17 +5,17 @@
       <img src="assets/images/Nominis.jpg" class="logo" />
       <h2 class="company-name">Nominis</h2>
     </div>
-    <a routerLink="/hotels">🏨 Hôtels</a>
+    <a routerLink="/hotels">🏨 Hotels</a>
     <a routerLink="/clients">👤 Clients</a>
-    <a routerLink="/reservations">📅 Réservations</a>
+    <a routerLink="/reservations">📅 Reservations</a>
     <a routerLink="/Marketplace">🛍️ Marketplace</a>
     <a [routerLink]="['/role']">👥 Roles</a>
     <a routerLink="/user">👤 Users</a>
-    <a routerLink="/login" class="logout-link">🔓 Déconnexion</a>
+    <a routerLink="/login" class="logout-link">🔓 Logout</a>
 
     <div class="additional-info">
       <div class="social-media">
-        <h4>Suivez-nous:</h4>
+        <h4>Follow us:</h4>
         <a href="https://www.facebook.com" target="_blank" class="social-icon facebook">📘 Facebook</a>
         <a href="https://www.instagram.com" target="_blank" class="social-icon instagram">📸 Instagram</a>
         <a href="https://www.twitter.com" target="_blank" class="social-icon twitter">🐦 Twitter</a>
@@ -23,7 +23,7 @@
       </div>
 
       <div class="contact-info">
-        <h4>Contactez-nous:</h4>
+        <h4>Contact us:</h4>
         <p>📍 Rue de Palestine</p>
         <p>📞 +216 56634578</p>
         <p>✉️ contact.nominis.com</p>
@@ -34,21 +34,21 @@
   <!-- Main Content (Hotel List) -->
   <div class="hotel-list-container">
     <div class="top-bar">
-      <h2>🏨 Liste des Hôtels</h2>
+      <h2>🏨 Hotel List</h2>
       <div class="button-group">
-        <button class="home-btn" (click)="goHome()">🏠 Accueil</button>
-        <button class="add-btn" (click)="goToAddHotel()">➕ Ajouter un Hôtel</button>
-        <button class="edit-btn">✏️ Modifier Tous</button>
+        <button class="home-btn" (click)="goHome()">🏠 Home</button>
+        <button class="add-btn" (click)="goToAddHotel()">➕ Add Hotel</button>
+        <button class="edit-btn">✏️ Edit All</button>
       </div>
     </div>
 
     <table class="hotel-table">
       <thead>
         <tr>
-          <th>🏨 Nom</th>
-          <th>📍 Ville</th>
-          <th>🌍 Pays</th>
-          <th>⭐ Étoiles</th>
+          <th>🏨 Name</th>
+          <th>📍 City</th>
+          <th>🌍 Country</th>
+          <th>⭐ Stars</th>
           <th>🛠️ Actions</th>
         </tr>
       </thead>
@@ -64,8 +64,8 @@
           </td>
           <td>
             <div class="table-actions">
-              <button class="edit" (click)="goToAddHotel(hotel.id)">✏️ Modifier</button>
-              <button class="delete" (click)="deleteHotel(hotel)">🗑️ Supprimer</button>
+              <button class="edit" (click)="goToAddHotel(hotel.id)">✏️ Edit</button>
+              <button class="delete" (click)="deleteHotel(hotel)">🗑️ Delete</button>
             </div>
           </td>
         </tr>
