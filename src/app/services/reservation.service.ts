@@ -8,7 +8,22 @@ export interface Reservation {
   email: string;
   phone: string;
   address: string;
-  // Ajoutez d'autres champs selon votre modèle backend
+  hotel?: string;
+  roomType?: string;
+  reservationType?: string;
+  guests?: number;
+  rooms?: number;
+  checkIn?: string;
+  checkOut?: string;
+  status?: string;
+  pastReservations?: Array<{
+    hotel?: string;
+    roomType?: string;
+    reservationType?: string;
+    checkIn?: string;
+    checkOut?: string;
+    status?: string;
+  }>;
 }
 
 @Injectable({

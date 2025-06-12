@@ -1,14 +1,28 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+// Définition des interfaces en haut du fichier
+export interface Adresse {
+  id: number;
+  streetName: string;
+  postalCode: number;
+  city: string;
+  country: string;
+  streetNumber: number;
+}
 
 export interface Hotel {
   id: number;
   name: string;
-  city: string;
-  country: string;
-  stars: string;
+  rating: number;
+  single: number;
+  double: number;
+  suite: number;
+  description: string;
+  adresse_id: number;
+  adresse: Adresse;
 }
+
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

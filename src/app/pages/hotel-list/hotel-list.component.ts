@@ -26,7 +26,7 @@ export class HotelListComponent implements OnInit {
     if (this.selectedCountry === 'All') {
       return this.hotels;
     }
-    return this.hotels.filter(hotel => hotel.country === this.selectedCountry);
+    return this.hotels.filter(hotel => hotel.adresse.country === this.selectedCountry);
   }
 
   goToAddHotel() {
@@ -48,4 +48,7 @@ export class HotelListComponent implements OnInit {
   goHome() {
     this.router.navigate(['/home']);
   }
+  getStars(rating: number): number[] {
+  return Array(rating).fill(0);
+}
 }
