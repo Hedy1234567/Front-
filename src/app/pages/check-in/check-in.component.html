@@ -102,11 +102,15 @@
   <!-- ✅ Carte Bancaire Upload -->
   <div>
     <label for="rectoUpload">Upload Front Card</label>
-    <input type="file" id="rectoUpload" (change)="onRectoSelected($event)" accept="image/*" />
+    <input type="file" id="rectoUpload" (change)="onRectoSelected($event)" accept="image/*" style="display:none;" />
+    <button type="button" (click)="document.getElementById('rectoUpload')?.click()">Choose Front Card</button>
+    <span *ngIf="rectoFile">{{ rectoFile.name }}</span>
   </div>
   <div>
     <label for="versoUpload">Upload Back Card</label>
-    <input type="file" id="versoUpload" (change)="onVersoSelected($event)" accept="image/*" />
+    <input type="file" id="versoUpload" (change)="onVersoSelected($event)" accept="image/*" style="display:none;" />
+    <button type="button" (click)="document.getElementById('versoUpload')?.click()">Choose Back Card</button>
+    <span *ngIf="versoFile">{{ versoFile.name }}</span>
   </div>
 
   <div *ngIf="rectoText === 'Extraction en cours...'">
