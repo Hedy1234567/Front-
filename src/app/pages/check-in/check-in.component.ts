@@ -27,17 +27,13 @@ export class CheckInComponent implements OnInit {
       numberOfGuests: ['', [Validators.required, Validators.min(1)]],
       idType: ['', Validators.required],
       roomType: ['', Validators.required],
-      preferences: this.fb.group({
-        nonSmoking: [false],
-        highFloor: [false],
-        nearElevator: [false]
-      }),
-      extras: this.fb.group({
-        breakfast: [false],
-        airportPickup: [false],
-        spaAccess: [false],
-        lateCheckout: [false]
-      }),
+      nonSmoking: [false],
+      highFloor: [false],
+      nearElevator: [false],
+      breakfast: [false],
+      airportPickup: [false],
+      spaAccess: [false],
+      lateCheckout: [false],
       specialRequests: [''],
       agreeTerms: [false, Validators.requiredTrue]
     });
