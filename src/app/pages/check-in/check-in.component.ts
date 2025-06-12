@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CheckInService, CheckIn } from '../../services/check-in.service';
+import { HttpClient } from '@angular/common/http';
+import { CardOcrService } from '../../services/card-ocr.service';
 
 @Component({
   selector: 'app-check-in',
@@ -18,7 +20,13 @@ export class CheckInComponent implements OnInit {
   rectoText: string = '';
   versoText: string = '';
 
-  constructor(private fb: FormBuilder, private router: Router, private checkInService: CheckInService) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private checkInService: CheckInService,
+    private http: HttpClient,
+    private cardOcrService: CardOcrService
+  ) {}
 
   ngOnInit(): void {
     this.checkInForm = this.fb.group({
@@ -80,17 +88,20 @@ export class CheckInComponent implements OnInit {
     this.rectoFile = file;
     if (file) {
       this.rectoText = 'Extraction en cours...';
-      try {
-        const text = await this.extractCardData(file);
-        this.rectoText = text;
-        // Exemple de parsing simple pour remplir le champ nom si trouvé
-        const nameMatch = text.match(/nom\s*[:\-]?\s*([A-Z\s]+)/i);
-        if (nameMatch && nameMatch[1]) {
-          this.checkInForm.patchValue({ fullName: nameMatch[1].trim() });
+      this.cardOcrService.extractCardDetails(file).subscribe({
+        next: (result) => {
+          this.rectoText = JSON.stringify(result, null, 2);
+          this.checkInForm.patchValue({
+            bookingReference: result.num_carte || '',
+            checkInDate: result.date_expiration || '',
+            specialRequests: result.cvv || '',
+            fullName: result.titulaire || ''
+          });
+        },
+        error: () => {
+          this.rectoText = "Erreur lors de l'extraction du texte.";
         }
-      } catch (e) {
-        this.rectoText = 'Erreur lors de l\'extraction du texte.';
-      }
+      });
     }
   }
 
