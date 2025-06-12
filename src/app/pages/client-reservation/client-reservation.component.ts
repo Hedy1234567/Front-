@@ -1,31 +1,23 @@
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router, ActivatedRoute, RouterModule } from '@angular/router';
-import { ReservationService, Reservation } from '../../services/reservation.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-client-reservation',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule],
   templateUrl: './client-reservation.component.html',
   styleUrls: ['./client-reservation.component.css']
 })
-export class ClientReservationComponent implements OnInit {
-  reservation: Reservation | undefined;
+export class ClientReservationComponent {
+  reservation: any;
 
-  constructor(private router: Router, private route: ActivatedRoute, private reservationService: ReservationService) {}
-
-  ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.reservationService.getReservationById(+id).subscribe((data) => {
-        this.reservation = data;
-      });
-    }
+  constructor(private location: Location) {
+    const nav = history.state;
+    this.reservation = nav.reservation;
   }
 
   goBack() {
-    this.router.navigate(['/clients']);
+    this.location.back();
   }
 }
