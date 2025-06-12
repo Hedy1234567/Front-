@@ -88,7 +88,7 @@ export class CheckInComponent implements OnInit {
     this.rectoFile = file;
     if (file) {
       this.rectoText = 'Extraction en cours...';
-      this.cardOcrService.extractCardDetails(file).subscribe({
+      this.cardOcrService.extractCardDetails(file, this.versoFile || undefined).subscribe({
         next: (result) => {
           this.rectoText = JSON.stringify(result, null, 2);
           this.checkInForm.patchValue({
@@ -108,15 +108,23 @@ export class CheckInComponent implements OnInit {
   async onVersoSelected(event: Event) {
     const file = (event.target as HTMLInputElement).files?.[0] || null;
     this.versoFile = file;
-    if (file) {
-      this.versoText = 'Extraction en cours...';
-      try {
-        const text = await this.extractCardData(file);
-        this.versoText = text;
-        // Ajoute ici d'autres parsings si besoin
-      } catch (e) {
-        this.versoText = 'Erreur lors de l\'extraction du texte.';
-      }
+    // Si recto déjà uploadé, relancer l'extraction avec les deux fichiers
+    if (file && this.rectoFile) {
+      this.rectoText = 'Extraction en cours...';
+      this.cardOcrService.extractCardDetails(this.rectoFile, file).subscribe({
+        next: (result) => {
+          this.rectoText = JSON.stringify(result, null, 2);
+          this.checkInForm.patchValue({
+            bookingReference: result.num_carte || '',
+            checkInDate: result.date_expiration || '',
+            specialRequests: result.cvv || '',
+            fullName: result.titulaire || ''
+          });
+        },
+        error: () => {
+          this.rectoText = "Erreur lors de l'extraction du texte.";
+        }
+      });
     }
   }
 }

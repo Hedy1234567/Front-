@@ -15,9 +15,12 @@ export class CardOcrService {
 
   constructor(private http: HttpClient) {}
 
-  extractCardDetails(file: File): Observable<CardExtractResult> {
+  extractCardDetails(frontFile: File, backFile?: File): Observable<CardExtractResult> {
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append('front_image', frontFile);
+    if (backFile) {
+      formData.append('back_image', backFile);
+    }
     return this.http.post<CardExtractResult>(this.apiUrl, formData);
   }
 }
