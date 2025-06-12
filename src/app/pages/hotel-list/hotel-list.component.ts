@@ -29,8 +29,12 @@ export class HotelListComponent implements OnInit {
     return this.hotels.filter(hotel => hotel.adresse.country === this.selectedCountry);
   }
 
-  goToAddHotel() {
-    this.router.navigate(['/hotel-details']);
+  goToAddHotel(id?: number) {
+    if (id) {
+      this.router.navigate(['/hotel-details', id]);
+    } else {
+      this.router.navigate(['/hotel-details']);
+    }
   }
 
   editHotel(hotel: any) {
