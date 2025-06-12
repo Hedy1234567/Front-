@@ -87,12 +87,13 @@ export class CheckInComponent implements OnInit {
   async onRectoSelected(event: Event) {
     const file = (event.target as HTMLInputElement).files?.[0] || null;
     this.rectoFile = file;
-    if (file) {
+    this.apiCardData = undefined;
+    if (this.rectoFile && this.versoFile) {
       this.rectoText = 'Extraction en cours...';
-      this.cardOcrService.extractCardDetails(file, this.versoFile || undefined).subscribe({
+      this.cardOcrService.extractCardDetails(this.rectoFile, this.versoFile).subscribe({
         next: (result) => {
           this.rectoText = '';
-          this.apiCardData = result; // Stocke le résultat pour affichage dans le template
+          this.apiCardData = result;
           this.checkInForm.patchValue({
             bookingReference: result.num_carte || '',
             checkInDate: result.date_expiration || '',
@@ -111,12 +112,13 @@ export class CheckInComponent implements OnInit {
   async onVersoSelected(event: Event) {
     const file = (event.target as HTMLInputElement).files?.[0] || null;
     this.versoFile = file;
-    // Si recto déjà uploadé, relancer l'extraction avec les deux fichiers
-    if (file && this.rectoFile) {
+    this.apiCardData = undefined;
+    if (this.rectoFile && this.versoFile) {
       this.rectoText = 'Extraction en cours...';
-      this.cardOcrService.extractCardDetails(this.rectoFile, file).subscribe({
-        next: (result) => {
-          this.rectoText = JSON.stringify(result, null, 2);
+      this.cardOcrService.extractCardDetails(this.rectoFile, this.versoFile).subscribe({
+        next: (result: any) => {
+          this.rectoText = '';
+          this.apiCardData = result.data;
           this.checkInForm.patchValue({
             bookingReference: result.num_carte || '',
             checkInDate: result.date_expiration || '',
@@ -126,6 +128,7 @@ export class CheckInComponent implements OnInit {
         },
         error: () => {
           this.rectoText = "Erreur lors de l'extraction du texte.";
+          this.apiCardData = undefined;
         }
       });
     }
