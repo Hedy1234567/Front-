@@ -73,7 +73,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pastReservation of reservation.pastReservations">
+      <tr *ngFor="let pastReservation of reservation?.pastReservations">
         <td>{{ pastReservation.hotel }}</td>
         <td>{{ pastReservation.roomType }}</td>
         <td>{{ pastReservation.reservationType }}</td>

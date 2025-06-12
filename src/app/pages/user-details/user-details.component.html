@@ -36,20 +36,15 @@
 
 <!-- User Detail Card -->
 <div class="user-detail-card">
-  <h2>{{ userDetails.name }}'s Details</h2>
+  <h2>{{ userDetails?.name }}'s Details</h2>
 
   <div class="card-body">
-    <p><strong>Address:</strong> {{ userDetails.address }}</p>
-    <p><strong>Email:</strong> {{ userDetails.email }}</p>
-    <p><strong>Role:</strong> {{ userDetails.role | titlecase }}</p>
-    <p><strong>Hotel:</strong> {{ userDetails.hotel }}</p>
-    <p><strong>Check-in:</strong> {{ userDetails.checkIn }}</p>
-    <p><strong>Check-out:</strong> {{ userDetails.checkOut }}</p>
-    <p><strong>Shift:</strong> {{ userDetails.shift | titlecase }}</p>
-    <p>
-      <strong>Status:</strong>
-      <span *ngIf="userDetails.onShift; else offShift">🟢 On Shift</span>
-      <ng-template #offShift>🔴 Not on Shift</ng-template>
-    </p>
+    <p><strong>Address:</strong> {{ userDetails?.address }}</p>
+    <p><strong>Email:</strong> {{ userDetails?.email }}</p>
+    <p><strong>Role:</strong> {{ userDetails?.role | titlecase }}</p>
+    <p><strong>Hotel:</strong> {{ userDetails?.hotel }}</p>
+    <p><strong>Check-in:</strong> {{ userDetails?.checkIn }}</p>
+    <p><strong>Check-out:</strong> {{ userDetails?.checkOut }}</p>
+    <p><strong>Shift:</strong> {{ userDetails?.shift | titlecase }}</p>
   </div>
 </div>
