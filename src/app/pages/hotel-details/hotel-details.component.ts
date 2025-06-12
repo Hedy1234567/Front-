@@ -127,7 +127,7 @@ saveHotel() {
         showCancelButton: true,
         confirmButtonText: 'Nouveau hôtel',
         cancelButtonText: 'Retour à la liste'
-      }).then((result) => {
+      }).then((result:any) => {
         if (result.isConfirmed) {
           // Réinitialiser les champs de l'hôtel pour créer un nouveau
           this.hotel = this.getEmptyHotel(); // ou utiliser this.hotelForm.reset() si tu utilises un formulaire
