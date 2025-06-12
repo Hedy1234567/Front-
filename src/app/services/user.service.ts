@@ -18,7 +18,7 @@ export interface User {
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8000/users'; // À adapter selon votre backend
+  private apiUrl = 'http://localhost:5000/users'; // À adapter selon votre backend
 
   constructor(private http: HttpClient) {}
 

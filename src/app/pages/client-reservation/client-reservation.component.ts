@@ -14,7 +14,9 @@ export class ClientReservationComponent {
 
   constructor(private location: Location) {
     const nav = history.state;
-    this.reservation = nav.reservation;
+
+    console.log(nav)
+    this.reservation = nav.client;
   }
 
   goBack() {

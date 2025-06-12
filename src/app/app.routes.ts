@@ -20,7 +20,7 @@ export const appRoutes: Routes = [
   { path: 'hotels', component: HotelListComponent },
   { path: 'hotel-details', component: HotelDetailsComponent },
   { path: 'clients', component: ClientListComponent },
-  { path: 'client-reservation/:id', component: ClientReservationComponent },
+  { path: 'client-reservation', component: ClientReservationComponent },
   { path: 'Marketplace', component: IntegrationsComponent },
   { path: 'role', component: RoleListeComponent },
   { path: 'role-details', component: RoleDetailsComponent },

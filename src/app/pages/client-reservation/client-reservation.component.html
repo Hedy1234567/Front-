@@ -36,25 +36,56 @@
     <div class="details-card">
       <h3>{{ reservation.name }}</h3>
   
-      <ul>
-        <li><strong>Hotel:</strong> {{ reservation.hotel }}</li>
-        <li><strong>Room Type:</strong> {{ reservation.roomType }}</li>
-        <li><strong>Reservation Type:</strong> {{ reservation.reservationType }}</li>
-        <li><strong>Guests:</strong> {{ reservation.guests }}</li>
-        <li><strong>Rooms:</strong> {{ reservation.rooms }}</li>
-        <li><strong>Check-in:</strong> {{ reservation.checkIn }}</li>
-        <li><strong>Check-out:</strong> {{ reservation.checkOut }}</li>
-        <li>
-          <strong>Status:</strong>
-          <span *ngIf="reservation.status === 'Confirmed'">✅ Confirmed</span>
-          <span *ngIf="reservation.status === 'Pending'">⏳ Pending</span>
-          <span *ngIf="reservation.status === 'Cancelled'">❌ Cancelled</span>
-          <span *ngIf="reservation.status === 'Checked-in'">🛎️ Checked-in</span>
-          <span *ngIf="reservation.status === 'Checked-out'">🏁 Checked-out</span>
-        </li>
-      </ul>
-    </div>
-  
-    <button class="back-button" (click)="goBack()">⬅ Back</button>
+      
+    <ul>
+      <li><strong>Hotel:</strong> La Badira - Hammamet</li>
+      <li><strong>Room Type:</strong> Suite Prestige Vue Mer</li>
+      <li><strong>Reservation Type:</strong> Réservation en ligne</li>
+      <li><strong>Guests:</strong> 2 adultes</li>
+      <li><strong>Rooms:</strong> 1</li>
+      <li><strong>Check-in:</strong> 2025-07-10</li>
+      <li><strong>Check-out:</strong> 2025-07-15</li>
+      <li>
+        <strong>Status:</strong>
+        <span>✅ Confirmed</span>
+      </li>
+    </ul>
   </div>
-  
+
+  <button class="back-button" onclick="history.back()">⬅ Back</button>
+</div>
+
+<!-- Static Previous Reservations -->
+<div class="previous-reservations">
+  <h3>Réservations précédentes</h3>
+  <table class="reservation-table">
+    <thead>
+      <tr>
+        <th>Hotel</th>
+        <th>Room Type</th>
+        <th>Reservation Type</th>
+        <th>Check-in</th>
+        <th>Check-out</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Hasdrubal Thalassa & Spa - Djerba</td>
+        <td>Chambre Luxe</td>
+        <td>Par téléphone</td>
+        <td>2024-08-01</td>
+        <td>2024-08-07</td>
+        <td><span>✅ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Radisson Blu - Sousse</td>
+        <td>Chambre Standard</td>
+        <td>Par agence</td>
+        <td>2023-06-15</td>
+        <td>2023-06-20</td>
+        <td><span>🏁 Checked-out</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

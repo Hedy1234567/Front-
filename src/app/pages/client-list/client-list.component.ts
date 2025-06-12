@@ -28,11 +28,11 @@ export class ClientListComponent implements OnInit {
       client.name.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
   }
-
+  
   viewClientDetails(client: Client) {
-    this.router.navigate(['/client-reservation', client.id]);
+    this.router.navigate(['/client-reservation'], { state: { client } });
   }
-
+ 
   goBack() {
     this.router.navigate(['../home']);
   }
