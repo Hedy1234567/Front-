@@ -11,8 +11,7 @@ export interface CardExtractResult {
 
 @Injectable({ providedIn: 'root' })
 export class CardOcrService {
-  private apiUrl = '/api/extract-card-details';
-
+    private apiUrl = 'http://localhost:8000/api/extract-card-details';
   constructor(private http: HttpClient) {}
 
   extractCardDetails(frontFile: File, backFile?: File): Observable<CardExtractResult> {

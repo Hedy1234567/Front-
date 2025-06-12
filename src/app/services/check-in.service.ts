@@ -33,9 +33,9 @@ export interface CheckIn {
   providedIn: 'root'
 })
 export class CheckInService {
-  private apiUrl = 'http://localhost:8000/checkin'; // À adapter selon votre backend
+  private apiUrl = 'http://localhost:5000/reservation'; // À adapter selon votre backend
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   createCheckIn(data: CheckIn): Observable<CheckIn> {
     return this.http.post<CheckIn>(this.apiUrl, data);
