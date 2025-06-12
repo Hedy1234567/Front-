@@ -55,9 +55,13 @@
       <tbody>
         <tr *ngFor="let hotel of hotels">
           <td>{{ hotel.name }}</td>
-          <td>{{ hotel.city }}</td>
-          <td>{{ hotel.country }}</td>
-          <td>{{ hotel.stars }}</td>
+          <td>{{ hotel.adresse.city }}</td>
+          <td>{{ hotel.adresse.country }}</td>
+          <td>
+            <ng-container *ngFor="let star of getStars(hotel.rating)">
+              ⭐
+            </ng-container>
+          </td>
           <td>
             <div class="table-actions">
               <button class="edit" (click)="goToAddHotel()">✏️ Modifier</button>
