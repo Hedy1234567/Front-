@@ -108,15 +108,12 @@
     <input type="file" id="versoUpload" (change)="onVersoSelected($event)" accept="image/*" />
   </div>
 
-  <!-- Affichage des données extraites du recto -->
-  <div *ngIf="rectoText">
-    <label>Données extraites (Recto):</label>
-    <textarea [value]="rectoText" readonly style="width:100%;min-height:60px;"></textarea>
-  </div>
-  <!-- Affichage des données extraites du verso -->
-  <div *ngIf="versoText">
-    <label>Données extraites (Verso):</label>
-    <textarea [value]="versoText" readonly style="width:100%;min-height:60px;"></textarea>
+  <!-- Affichage des données extraites du recto sous forme de labels -->
+  <div *ngIf="apiCardData">
+    <label><strong>Numéro de carte :</strong> {{ apiCardData.num_carte }}</label><br />
+    <label><strong>Date d'expiration :</strong> {{ apiCardData.date_expiration }}</label><br />
+    <label><strong>CVV :</strong> {{ apiCardData.cvv }}</label><br />
+    <label><strong>Titulaire :</strong> {{ apiCardData.titulaire }}</label><br />
   </div>
 
   <button type="submit" [disabled]="checkInForm.invalid">Submit</button>

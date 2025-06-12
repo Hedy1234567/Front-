@@ -19,6 +19,7 @@ export class CheckInComponent implements OnInit {
   versoFile: File | null = null;
   rectoText: string = '';
   versoText: string = '';
+  apiCardData: any; // Ajout d'une propriété pour stocker les données de la carte
 
   constructor(
     private fb: FormBuilder,
@@ -90,7 +91,8 @@ export class CheckInComponent implements OnInit {
       this.rectoText = 'Extraction en cours...';
       this.cardOcrService.extractCardDetails(file, this.versoFile || undefined).subscribe({
         next: (result) => {
-          this.rectoText = JSON.stringify(result, null, 2);
+          this.rectoText = '';
+          this.apiCardData = result; // Stocke le résultat pour affichage dans le template
           this.checkInForm.patchValue({
             bookingReference: result.num_carte || '',
             checkInDate: result.date_expiration || '',
@@ -100,6 +102,7 @@ export class CheckInComponent implements OnInit {
         },
         error: () => {
           this.rectoText = "Erreur lors de l'extraction du texte.";
+          this.apiCardData = undefined;
         }
       });
     }
