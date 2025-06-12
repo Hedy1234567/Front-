@@ -98,26 +98,27 @@
     <label for="agreeTerms">I agree to the terms and conditions</label>
   </div>
 
+ 
   <!-- ✅ Carte Bancaire Upload -->
   <div>
-    <label for="rectoUpload">Upload Carte Recto</label>
+    <label for="rectoUpload">Upload Front Card</label>
     <input type="file" id="rectoUpload" (change)="onRectoSelected($event)" accept="image/*" />
   </div>
   <div>
-    <label for="versoUpload">Upload Carte Verso</label>
+    <label for="versoUpload">Upload Back Card</label>
     <input type="file" id="versoUpload" (change)="onVersoSelected($event)" accept="image/*" />
   </div>
 
   <div *ngIf="rectoText === 'Extraction en cours...'">
-    <span style="color: #1976d2; font-weight: bold;">Extraction en cours...</span>
+    <span style="color: #1976d2; font-weight: bold;">Extraction in progress...</span>
   </div>
 
   <!-- Affichage des données extraites du recto sous forme de labels -->
   <div *ngIf="apiCardData">
-    <div><strong>Numéro de carte :</strong> <span *ngIf="apiCardData.num_carte; else noNum">{{ apiCardData.num_carte }}</span><ng-template #noNum><em style="color:red">Non détecté</em></ng-template></div>
-    <div><strong>Date d'expiration :</strong> <span *ngIf="apiCardData.date_expiration; else noDate">{{ apiCardData.date_expiration }}</span><ng-template #noDate><em style="color:red">Non détectée</em></ng-template></div>
-    <div><strong>CVV :</strong> <span *ngIf="apiCardData.cvv; else noCvv">{{ apiCardData.cvv }}</span><ng-template #noCvv><em style="color:red">Non détecté</em></ng-template></div>
-    <div><strong>Titulaire :</strong> <span *ngIf="apiCardData.titulaire; else noTitulaire">{{ apiCardData.titulaire }}</span><ng-template #noTitulaire><em style="color:red">Non détecté</em></ng-template></div>
+    <div><strong>Card Number :</strong> <span *ngIf="apiCardData.num_carte; else noNum">{{ apiCardData.num_carte }}</span><ng-template #noNum><em style="color:red">Non détecté</em></ng-template></div>
+    <div><strong>Expiration Date :</strong> <span *ngIf="apiCardData.date_expiration; else noDate">{{ apiCardData.date_expiration }}</span><ng-template #noDate><em style="color:red">Non détectée</em></ng-template></div>
+    <div><strong>Card Security Code :</strong> <span *ngIf="apiCardData.cvv; else noCvv">{{ apiCardData.cvv }}</span><ng-template #noCvv><em style="color:red">Non détecté</em></ng-template></div>
+    <div><strong>Cardholder :</strong> <span *ngIf="apiCardData.titulaire; else noTitulaire">{{ apiCardData.titulaire }}</span><ng-template #noTitulaire><em style="color:red">Non détecté</em></ng-template></div>
   </div>
 
   <button type="submit" [disabled]="checkInForm.invalid">Submit</button>
