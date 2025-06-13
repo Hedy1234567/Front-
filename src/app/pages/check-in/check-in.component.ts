@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { CheckInService, CheckIn } from '../../services/check-in.service';
 import { HttpClient } from '@angular/common/http';
 import { CardOcrService } from '../../services/card-ocr.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-check-in',
@@ -31,43 +33,40 @@ export class CheckInComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkInForm = this.fb.group({
-      fullName: ['', [Validators.required, Validators.minLength(3)]],
+      full_name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]{8,15}$')]],
-      bookingReference: ['', Validators.required],
-      checkInDate: ['', Validators.required],
-      checkOutDate: ['', Validators.required],
-      numberOfGuests: ['', [Validators.required, Validators.min(1)]],
-      idType: ['', Validators.required],
-      roomType: ['', Validators.required],
-      nonSmoking: [false],
-      highFloor: [false],
-      nearElevator: [false],
-      breakfast: [false],
-      airportPickup: [false],
-      spaAccess: [false],
-      lateCheckout: [false],
-      specialRequests: [''],
-      agreeTerms: [false, Validators.requiredTrue]
+      phone_number: ['', [Validators.required, Validators.pattern('^[0-9]{8,15}$')]],
+      booking_reference_number: ['', Validators.required],
+      check_in_date: ['', Validators.required],
+      check_out_date: ['', Validators.required],
+      number_of_guests: ['', [Validators.required, Validators.min(1)]],
+      id_type: ['', Validators.required],
+      room_type: ['', Validators.required],    
     });
   }
 
-  onSubmit(): void {
-    if (this.checkInForm.valid) {
-      this.checkInService.createCheckIn(this.checkInForm.value).subscribe({
-        next: (res) => {
-          alert('Check-in successfully saved!');
-          this.router.navigate(['/home']);
-        },
-        error: (err) => {
-          alert('Error while saving check-in.');
-          console.error(err);
-        }
-      });
-    } else {
-      this.checkInForm.markAllAsTouched();
-    }
+ onSubmit(): void {
+  if (this.checkInForm.valid) {
+    this.checkInService.createCheckIn(this.checkInForm.value).subscribe({
+      next: (res) => {
+        Swal.fire({
+          title: 'Your check-in was successful!',
+          text: 'Would you like to create another check-in or return to the list?',
+          icon: 'success',
+          showCancelButton: true,
+          confirmButtonText: 'New check-in',
+          cancelButtonText: 'Back to list'
+        });
+      },
+      error: (err) => {
+        alert('Error while saving the check-in.');
+        console.error(err);
+      }
+    });
+  } else {
+    this.checkInForm.markAllAsTouched();
   }
+}
 
   goBack(): void {
     this.router.navigate(['../home']);
@@ -91,14 +90,14 @@ export class CheckInComponent implements OnInit {
     if (this.rectoFile && this.versoFile) {
       this.rectoText = 'Extraction in progress...';
       this.cardOcrService.extractCardDetails(this.rectoFile, this.versoFile).subscribe({
-        next: (result) => {
+        next: (result:any) => {
           this.rectoText = '';
-          this.apiCardData = result;
+          this.apiCardData = result.data;
           this.checkInForm.patchValue({
-            bookingReference: result.num_carte || '',
-            checkInDate: result.date_expiration || '',
-            specialRequests: result.cvv || '',
-            fullName: result.titulaire || ''
+            bookingReference: result.data.num_carte || '',
+            checkInDate: result.data.date_expiration || '',
+            specialRequests: result.data.cvv || '',
+            fullName: result.data.titulaire || ''
           });
         },
         error: () => {
@@ -134,7 +133,7 @@ export class CheckInComponent implements OnInit {
     }
   }
 
-  isAdmin(): boolean {
-    return localStorage.getItem('role') === 'Admin';
-  }
+  // isAdmin(): boolean {
+  //   return localStorage.getItem('role') === 'Admin';
+  // }
 }

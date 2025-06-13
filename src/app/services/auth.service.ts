@@ -12,7 +12,7 @@ export class AuthService {
   // Méthode pour se connecter
   login(username: string, password: string): boolean {
     // Ici tu vérifies les identifiants, par exemple en appelant une API
-    if (username === 'admin' && password === 'admin123') {
+    if ((username === 'admin' && password === 'admin123') || (username === 'hedi' && password === 'admin123')) {
       this.isAuthenticated = true;
       localStorage.setItem('isLoggedIn', 'true'); // Sauvegarde de l'état de connexion
       return true;

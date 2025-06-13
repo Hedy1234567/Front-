@@ -21,7 +21,13 @@ export class LoginComponent {
     const success = this.auth.login(this.username, this.password);
     if (success) {
       this.router.navigate(['/home']);
-      localStorage.setItem('role', "Admin")
+      if (this.username == "admin") {
+          localStorage.setItem('role', "Admin")
+
+      }
+      else {
+        localStorage.setItem('role', "Receptionist")
+      }
     } else {
       alert('Identifiants incorrects !');
     }

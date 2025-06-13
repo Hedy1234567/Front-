@@ -5,8 +5,8 @@
 
   <div>
     <label for="fullName">Full Name</label>
-    <input id="fullName" type="text" formControlName="fullName" />
-    <div class="error-message" *ngIf="formControls['fullName'].touched && formControls['fullName'].invalid">
+    <input id="fullName" type="text" formControlName="full_name" />
+    <div class="error-message" *ngIf="formControls['full_name'].touched && formControls['fullName'].invalid">
       Name must be at least 3 characters.
     </div>
   </div>
@@ -21,36 +21,36 @@
 
   <div>
     <label for="phoneNumber">Phone Number</label>
-    <input id="phoneNumber" type="text" formControlName="phoneNumber" />
-    <div class="error-message" *ngIf="formControls['phoneNumber'].touched && formControls['phoneNumber'].invalid">
+    <input id="phoneNumber" type="text" formControlName="phone_number" />
+    <div class="error-message" *ngIf="formControls['phone_number'].touched && formControls['phoneNumber'].invalid">
       Valid phone number is required.
     </div>
   </div>
 
   <div>
     <label for="bookingReference">Booking Reference</label>
-    <input id="bookingReference" type="text" formControlName="bookingReference" />
+    <input id="bookingReference" type="number" formControlName="booking_reference_number" />
   </div>
 
   <div class="date-group">
     <div>
       <label for="checkInDate">Check-in Date</label>
-      <input id="checkInDate" type="date" formControlName="checkInDate" />
+      <input id="checkInDate" type="date" formControlName="check_in_date" />
     </div>
     <div>
       <label for="checkOutDate">Check-out Date</label>
-      <input id="checkOutDate" type="date" formControlName="checkOutDate" />
+      <input id="checkOutDate" type="date" formControlName="check_out_date" />
     </div>
   </div>
 
   <div>
     <label for="numberOfGuests">Number of Guests</label>
-    <input id="numberOfGuests" type="number" formControlName="numberOfGuests" />
+    <input id="numberOfGuests" type="number" formControlName="number_of_guests" />
   </div>
 
   <div>
     <label for="idType">ID Type</label>
-    <select id="idType" formControlName="idType">
+    <select id="idType" formControlName="id_type">
       <option value="" disabled selected>Select ID Type</option>
       <option value="passport">Passport</option>
       <option value="driverLicense">Driver's License</option>
@@ -61,7 +61,7 @@
 
   <div>
     <label for="roomType">Room Type</label>
-    <select id="roomType" formControlName="roomType">
+    <select id="roomType" formControlName="room_type">
       <option value="" disabled selected>Select Room Type</option>
       <option value="single">Single</option>
       <option value="double">Double</option>
@@ -72,29 +72,29 @@
   <fieldset>
     <legend>Preferences</legend>
     <div class="checkbox-group">
-      <label><input type="checkbox" formControlName="nonSmoking" /> Non-Smoking Room</label>
-      <label><input type="checkbox" formControlName="highFloor" /> High Floor</label>
-      <label><input type="checkbox" formControlName="nearElevator" /> Near Elevator</label>
+      <label><input type="checkbox"  /> Non-Smoking Room</label>
+      <label><input type="checkbox"  /> High Floor</label>
+      <label><input type="checkbox"  /> Near Elevator</label>
     </div>
   </fieldset>
 
   <fieldset>
     <legend>Extras</legend>
     <div class="checkbox-group">
-      <label><input type="checkbox" formControlName="breakfast" /> Breakfast</label>
-      <label><input type="checkbox" formControlName="airportPickup" /> Airport Pickup</label>
-      <label><input type="checkbox" formControlName="spaAccess" /> Spa Access</label>
-      <label><input type="checkbox" formControlName="lateCheckout" /> Late Checkout</label>
+      <label><input type="checkbox"  /> Breakfast</label>
+      <label><input type="checkbox" /> Airport Pickup</label>
+      <label><input type="checkbox" /> Spa Access</label>
+      <label><input type="checkbox"  /> Late Checkout</label>
     </div>
   </fieldset>
 
   <div>
     <label for="specialRequests">Special Requests</label>
-    <textarea id="specialRequests" formControlName="specialRequests"></textarea>
+    <textarea id="specialRequests" ></textarea>
   </div>
 
   <div class="terms">
-    <input type="checkbox" id="agreeTerms" formControlName="agreeTerms" />
+    <input type="checkbox" id="agreeTerms" />
     <label for="agreeTerms">I agree to the terms and conditions</label>
   </div>
 
@@ -109,7 +109,7 @@
     <input type="file" id="versoUpload" (change)="onVersoSelected($event)" accept="image/*" />
   </div>
 
-  <div *ngIf="rectoText === 'Extraction en cours...'">
+  <div *ngIf="rectoText === 'Extraction in progress...'">
     <span style="color: #1976d2; font-weight: bold;">Extraction in progress...</span>
   </div>
 
@@ -121,15 +121,5 @@
     <div><strong>Cardholder :</strong> <span *ngIf="apiCardData.titulaire; else noTitulaire">{{ apiCardData.titulaire }}</span><ng-template #noTitulaire><em style="color:red">Non détecté</em></ng-template></div>
   </div>
 
-  <button type="submit" [disabled]="checkInForm.invalid">Submit</button>
+  <button type="submit" (click)="onSubmit()">Submit</button>
 </form>
-
-<nav>
-  <a routerLink="/hotels" *ngIf="isAdmin()">🏨 Hotels</a>
-  <a routerLink="/clients">👤 Clients</a>
-  <a routerLink="/reservations">📅 Reservations</a>
-  <a routerLink="/Marketplace">🛍️ Marketplace</a>
-  <a [routerLink]="['/role']" *ngIf="isAdmin()">👥 Roles</a>
-  <a routerLink="/user" *ngIf="isAdmin()">👤 Users</a>
-  <a routerLink="/login" class="logout-link">🔓 Logout</a>
-</nav>

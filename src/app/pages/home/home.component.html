@@ -2,7 +2,7 @@
   <!-- Admin info moved to the left -->
   <div class="user-info">
     <div class="username-dropdown">
-      <span class="username">👤 Admin</span>
+      <span class="username">👤 {{role}}</span>
       <div class="dropdown-content">
         <button>✏️ Modifier Profil</button>
         <button>⚙️ Paramètres</button>
@@ -34,8 +34,8 @@
   <a routerLink="/clients">👤 Clients</a>
   <a routerLink="/reservations">📅 Réservations</a>
   <a routerLink="/Marketplace">🛍️ Marketplace</a>
-  <a [routerLink]="['/role']">👥 Roles</a>
-  <a routerLink="/user">👤 Users</a>
+  <a routerLink="/role" *ngIf="isAdmin()">👥 Roles</a>
+  <a routerLink="/user" *ngIf="isAdmin()">👤 Users</a>
   <a routerLink="/login" class="logout-link">🔓 Déconnexion</a>
 
   <div class="additional-info">
