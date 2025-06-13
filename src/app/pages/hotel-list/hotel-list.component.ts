@@ -55,7 +55,21 @@ export class HotelListComponent implements OnInit {
   getStars(rating: number): number[] {
   return Array(rating).fill(0);
 }
+// isAdmin(): boolean {
+//   return localStorage.getItem('role') === 'Admin';
+// }
 isAdmin(): boolean {
-  return localStorage.getItem('role') === 'Admin';
+
+  if (typeof window !== 'undefined' && localStorage) {
+
+    const role = localStorage.getItem('role');
+
+    return role === 'Admin';
+
+  }
+
+  return false;
+
 }
+ 
 }

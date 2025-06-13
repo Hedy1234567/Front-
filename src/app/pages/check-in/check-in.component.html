@@ -6,7 +6,7 @@
   <div>
     <label for="fullName">Full Name</label>
     <input id="fullName" type="text" formControlName="full_name" />
-    <div class="error-message" *ngIf="formControls['full_name'].touched && formControls['fullName'].invalid">
+    <div class="error-message" *ngIf="formControls['full_name'].touched && formControls['full_name']?.invalid">
       Name must be at least 3 characters.
     </div>
   </div>
@@ -14,7 +14,7 @@
   <div>
     <label for="email">Email</label>
     <input id="email" type="email" formControlName="email" />
-    <div class="error-message" *ngIf="formControls['email'].touched && formControls['email'].invalid">
+    <div class="error-message" *ngIf="formControls['email'].touched && formControls['email']?.invalid">
       Valid email is required.
     </div>
   </div>
@@ -22,7 +22,7 @@
   <div>
     <label for="phoneNumber">Phone Number</label>
     <input id="phoneNumber" type="text" formControlName="phone_number" />
-    <div class="error-message" *ngIf="formControls['phone_number'].touched && formControls['phoneNumber'].invalid">
+    <div class="error-message" *ngIf="formControls['phone_number'].touched && formControls['phoneNumber']?.invalid">
       Valid phone number is required.
     </div>
   </div>

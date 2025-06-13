@@ -13,19 +13,19 @@ import { Router, RouterModule } from '@angular/router';
 export class RoleDetailsComponent implements OnInit {
   role: any;
   securityLevels: any[] = [
-    { task: 'Access Hotel Data', access: true },
+    { task: 'Access Hotel Data', access: false },
     { task: 'Manage Reservations', access: true },
     { task: 'Edit Room Availability', access: true },
-    { task: 'Approve Budget', access: true },
+    { task: 'Approve Budget', access: false },
     { task: 'Check-in / Check-out Guests', access: false },
     { task: 'Manage Staff Schedules', access: false },
     { task: 'Generate Reports', access: true },
-    { task: 'Handle Guest Complaints', access: true },
+    { task: 'Handle Guest Complaints', access: false },
     { task: 'View Financial Statements', access: false },
     { task: 'Assign Housekeeping Tasks', access: false },
     { task: 'Manage Restaurant Menu', access: false },
     { task: 'Monitor Security Systems', access: false },
-    { task: 'Handle Online Bookings', access: true },
+    { task: 'Handle Online Bookings', access: false },
   ];
   
 

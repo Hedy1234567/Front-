@@ -106,7 +106,7 @@ export class HotelDetailsComponent implements OnInit {
     this.personnelList.splice(index, 1);
   }
 
-saveHotel() {
+  saveHotel() {
   const hotelToSend: any = {
     ...this.hotel,
     personnel: this.personnelList
@@ -121,19 +121,19 @@ saveHotel() {
     // CREATE
     this.hotelService.createHotel(hotelToSend).subscribe(() => {
       Swal.fire({
-        title: 'Hôtel créé avec succès !',
-        text: 'Souhaitez-vous créer un autre hôtel ou revenir à la liste ?',
+        title: 'Hotel created successfully!',
+        text: 'Do you want to create another hotel or go back to the list?',
         icon: 'success',
         showCancelButton: true,
-        confirmButtonText: 'Nouveau hôtel',
-        cancelButtonText: 'Retour à la liste'
-      }).then((result:any) => {
+        confirmButtonText: 'New hotel',
+        cancelButtonText: 'Back to list'
+      }).then((result: any) => {
         if (result.isConfirmed) {
-          // Réinitialiser les champs de l'hôtel pour créer un nouveau
-          this.hotel = this.getEmptyHotel(); // ou utiliser this.hotelForm.reset() si tu utilises un formulaire
+          // Reset hotel fields to create a new one
+          this.hotel = this.getEmptyHotel(); // or use this.hotelForm.reset() if you use a form
           this.personnelList = [];
         } else {
-          // Retour à la liste
+          // Back to list
           this.router.navigate(['/hotels']);
         }
       });
